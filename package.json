@@ -1,0 +1,74 @@
+{
+  "name": "@privyid/nhp",
+  "description": "Nuxt HTTP Proxy Module",
+  "version": "0.1.0",
+  "packageManager": "yarn@3.4.1",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./module": {
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs",
+      "types": "./dist/types.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "module": [
+        "./dist/types.d.ts"
+      ]
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "yarn build",
+    "dev": "nuxi dev playground",
+    "build": "nuxt-module-build",
+    "lint": "eslint . --ext .js,.vue,.ts --format pretty",
+    "fix": "yarn lint --fix",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.0.0",
+    "@types/connect": "^3.4.35",
+    "connect": "^3.7.0",
+    "h3": "^1.6.0",
+    "http-proxy-middleware": "^2.0.6"
+  },
+  "devDependencies": {
+    "@nuxt/module-builder": "^0.2.1",
+    "@nuxt/schema": "^3.0.0",
+    "@privyid/eslint-config-persona": "^0.9.0",
+    "@types/simple-oauth2": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "@vue/eslint-config-typescript": "^11.0.2",
+    "eslint": "^8.35.0",
+    "eslint-config-standard-with-typescript": "^34.0.0",
+    "eslint-formatter-pretty": "^4.1.0",
+    "eslint-plugin-align-assignments": "^1.1.2",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-unicorn": "^46.0.0",
+    "eslint-plugin-varspacing": "^1.2.2",
+    "eslint-plugin-vue": "^9.9.0",
+    "nuxt": "^3.0.0",
+    "typescript": "^4.9.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
