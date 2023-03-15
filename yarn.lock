@@ -1021,9 +1021,9 @@ __metadata:
   linkType: hard
 
 "@types/simple-oauth2@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "@types/simple-oauth2@npm:5.0.0"
-  checksum: 9c7f638edabaf80c2b7a130cb6935ec5341e61f2d1f70fc1f856d5ed8146381da26982256760999a5d72d7c8cd7fc88e990f88dfb7fafe5986e6fe6307f4675e
+  version: 5.0.3
+  resolution: "@types/simple-oauth2@npm:5.0.3"
+  checksum: 3a89e5dcd50ff15877e0242bf3fbe432bd6a0333b5de7bb3e10633db83d598d945b5e1585bf24ea6468d076db3979a40a0ce753d6c8443b5480c72d9e19a2b97
   languageName: node
   linkType: hard
 
