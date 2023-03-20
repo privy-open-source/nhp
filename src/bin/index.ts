@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /* eslint-disable unicorn/prefer-top-level-await */
 import meow from 'meow'
-import { dirname, resolve } from 'node:path'
 import fse from 'fs-extra'
 import console from 'consola'
+import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const DIRNAME = dirname(fileURLToPath(import.meta.url))
