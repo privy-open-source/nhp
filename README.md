@@ -20,9 +20,28 @@ export default defineNuxtConfig({
 })
 ```
 
+Create new server config
+
+```
+npx nhp init
+```
+
 ## Usage
 
-🚧 This module is under construction.
+### Simple Usage
+
+```ts
+import { defineServer } from '@privyid/nhp'
+
+export default defineServer([
+  {
+    name     : 'example',
+    baseUrl  : '/api/example',
+    targetUrl: 'https://reqres.in/api/',
+  },
+])
+```
+
 
 ## Contribution
 

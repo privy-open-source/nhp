@@ -24,6 +24,9 @@
       ]
     }
   },
+  "bin": {
+    "nhp": "./bin/nhp.js"
+  },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -43,13 +46,17 @@
     "@nuxt/kit": "^3.0.0",
     "@types/connect": "^3.4.35",
     "connect": "^3.7.0",
+    "consola": "^2.15.3",
+    "fs-extra": "^11.1.0",
     "h3": "^1.6.0",
-    "http-proxy-middleware": "^2.0.6"
+    "http-proxy-middleware": "^2.0.6",
+    "meow": "^11.0.0"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.2.1",
     "@nuxt/schema": "^3.0.0",
     "@privyid/eslint-config-persona": "^0.9.0",
+    "@types/fs-extra": "^11",
     "@types/simple-oauth2": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",

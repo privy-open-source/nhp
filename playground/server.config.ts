@@ -1,4 +1,4 @@
-import { defineServer } from '../src/'
+import { defineServer, defineEventInterceptor } from '../src/'
 
 export default defineServer([
   {
@@ -7,11 +7,11 @@ export default defineServer([
     targetUrl: 'https://reqres.in/api/',
   },
   {
-    name     : 'bin',
-    baseUrl  : '/api/bin',
-    targetUrl: 'https://httpbin.org',
-    onProxyReq (proxyEvent) {
+    name      : 'bin',
+    baseUrl   : '/api/bin',
+    targetUrl : 'https://httpbin.org',
+    onProxyReq: defineEventInterceptor((proxyEvent) => {
       setHeader(proxyEvent, 'X-Req-Signature', 'Hello World')
-    },
+    }),
   },
 ])
