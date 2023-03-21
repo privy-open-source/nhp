@@ -31,7 +31,9 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "template",
+    "bin"
   ],
   "scripts": {
     "prepack": "yarn build",

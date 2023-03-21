@@ -130,4 +130,4 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-server.config.ts
+/server.config.ts

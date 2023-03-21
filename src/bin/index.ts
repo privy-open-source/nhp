@@ -20,7 +20,7 @@ const cli     = meow(`
 async function main () {
   switch (cli.input[0]) {
     case 'init': {
-      const examplePath = resolve(DIRNAME, './server.config.ts.example')
+      const examplePath = resolve(DIRNAME, '../../template/server.config.ts')
       const configPath  = resolve(process.cwd(), './server.config.ts')
 
       if (await fse.exists(configPath))

@@ -5,7 +5,7 @@ export default defineBuildConfig({
     { input: './src/index' },
     {
       builder: 'mkdist',
-      input  : 'src/bin/',
+      input  : 'src/bin',
       outDir : 'dist/bin',
     },
   ],
