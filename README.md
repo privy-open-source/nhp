@@ -42,6 +42,29 @@ export default defineServer([
 ])
 ```
 
+### Intercept Requests and Response
+
+NHP provide util `defineEventInterceptor` for `onProxyReq` and `onProxyRes`, it will translate the handler to [H3][H3] compability event.
+So, you can use all utilities from [H3][H3]
+
+```ts
+import { getCookies, setHeader } from 'h3'
+import { defineServer, defineEventInterceptor } from '@privyid/nhp'
+
+export default defineServer([
+  {
+    name      : 'bin',
+    baseUrl   : '/api/bin',
+    targetUrl : 'https://httpbin.org',
+    onProxyReq: defineEventInterceptor((proxyEvent, event) => {
+      const token = getCookie(event, 'session/token')
+
+      if (token)
+        setHeader(proxyEvent, 'Authentication', `Bearer ${token}`)
+    }),
+  },
+])
+```
 
 ## Contribution
 
@@ -55,3 +78,5 @@ export default defineServer([
 ## License
 
 [MIT License](/LICENSE)
+
+[H3]: https://github.com/unjs/h3

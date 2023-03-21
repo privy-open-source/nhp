@@ -10,8 +10,11 @@ export default defineServer([
     name      : 'bin',
     baseUrl   : '/api/bin',
     targetUrl : 'https://httpbin.org',
-    onProxyReq: defineEventInterceptor((proxyEvent) => {
-      setHeader(proxyEvent, 'X-Req-Signature', 'Hello World')
+    onProxyReq: defineEventInterceptor((proxyEvent, event) => {
+      const token = getCookie(event, 'session/token')
+
+      if (token)
+        setHeader(proxyEvent, 'Authentication', `Bearer ${token}`)
     }),
   },
 ])
