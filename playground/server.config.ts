@@ -4,7 +4,7 @@ export default defineServer([
   {
     name     : 'coba',
     baseUrl  : '/api/coba',
-    targetUrl: 'https://reqres.in/api/',
+    targetUrl: process.env.COBA_BASEURL,
   },
   {
     name      : 'bin',
