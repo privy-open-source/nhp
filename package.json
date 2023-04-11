@@ -45,7 +45,7 @@
   "dependencies": {
     "@nuxt/kit": "^3.0.0",
     "connect": "^3.7.0",
-    "consola": "^2.15.3",
+    "consola": "^3.0.0",
     "fs-extra": "^11.1.0",
     "h3": "^1.6.0",
     "http-proxy-middleware": "^2.0.6",
