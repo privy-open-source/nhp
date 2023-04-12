@@ -1009,7 +1009,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.54.1
     "@vue/eslint-config-typescript": ^11.0.2
     connect: ^3.7.0
-    consola: ^2.15.3
+    consola: ^3.0.0
     eslint: ^8.35.0
     eslint-config-standard-with-typescript: ^34.0.0
     eslint-formatter-pretty: ^4.1.0
@@ -2695,6 +2695,13 @@ __metadata:
   version: 2.15.3
   resolution: "consola@npm:2.15.3"
   checksum: 8ef7a09b703ec67ac5c389a372a33b6dc97eda6c9876443a60d76a3076eea0259e7f67a4e54fd5a52f97df73690822d090cf8b7e102b5761348afef7c6d03e28
+  languageName: node
+  linkType: hard
+
+"consola@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "consola@npm:3.0.0"
+  checksum: e8faa1aefd516f90155c93870ee73ba3760e635fe1a941fa662a2b910fb530662bc7349b4dd9d38412c0c38af47456088ad2f8126173f12b378df9142219acc2
   languageName: node
   linkType: hard
 
