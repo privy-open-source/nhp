@@ -2933,14 +2933,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"consola@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "consola@npm:3.0.0"
-  checksum: e8faa1aefd516f90155c93870ee73ba3760e635fe1a941fa662a2b910fb530662bc7349b4dd9d38412c0c38af47456088ad2f8126173f12b378df9142219acc2
-  languageName: node
-  linkType: hard
-
-"consola@npm:^3.0.1":
+"consola@npm:^3.0.0, consola@npm:^3.0.1":
   version: 3.0.1
   resolution: "consola@npm:3.0.1"
   checksum: 0d06afe3119ecb6b45ebb04506881942dbc70656c0abf2a7b15b6af35b9b0233f722999913ac3fb91dd118b9ff5c0158050cb77d83a829cd124eab421addcefd
