@@ -2934,9 +2934,9 @@ __metadata:
   linkType: hard
 
 "consola@npm:^3.0.0, consola@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "consola@npm:3.0.1"
-  checksum: 0d06afe3119ecb6b45ebb04506881942dbc70656c0abf2a7b15b6af35b9b0233f722999913ac3fb91dd118b9ff5c0158050cb77d83a829cd124eab421addcefd
+  version: 3.0.2
+  resolution: "consola@npm:3.0.2"
+  checksum: e82503d738d410e36aca1543a37fb8ca385cd38c86b8fb055086f3df223ab1c353cea4e649b46169b5b7e9a7a61997f2693a57611522331d50a7811a372a816e
   languageName: node
   linkType: hard
 
