@@ -3,31 +3,35 @@
   "description": "Nuxt HTTP Proxy Module",
   "version": "0.1.0",
   "packageManager": "yarn@3.5.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/privy-open-source/nhp.git"
+  },
   "license": "MIT",
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
-    },
-    "./module": {
       "import": "./dist/module.mjs",
       "require": "./dist/module.cjs",
       "types": "./dist/types.d.ts"
+    },
+    "./core": {
+      "import": "./dist/core.mjs",
+      "require": "./dist/core.cjs",
+      "types": "./dist/core.d.ts"
     }
   },
   "typesVersions": {
     "*": {
-      "module": [
-        "./dist/types.d.ts"
+      "core": [
+        "./dist/core.d.ts"
       ]
     }
   },
   "bin": "./bin/nhp.js",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/module.cjs",
+  "module": "./dist/module.mjs",
+  "types": "./dist/types.d.ts",
   "files": [
     "dist",
     "template",

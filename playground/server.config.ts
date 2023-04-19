@@ -1,4 +1,4 @@
-import { defineServer, defineEventInterceptor } from '../src/'
+import { defineServer, defineEventInterceptor } from '../src/core'
 
 export default defineServer([
   {

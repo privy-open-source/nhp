@@ -9,7 +9,7 @@ export interface ApiServer extends Options {
   schemaUrl?: string,
 }
 
-type EventInterceptor = (proxyEvent: H3Event, event: H3Event) => unknown | Promise<unknown>
+export type EventInterceptor = (proxyEvent: H3Event, event: H3Event) => unknown | Promise<unknown>
 
 /**
  * Transform http-proxy-middleware

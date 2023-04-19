@@ -16,7 +16,7 @@ Then, add into `nuxt.config.ts` modules
 
 ```ts
 export default defineNuxtConfig({
-  modules: ['@privyid/nhp/module'],
+  modules: ['@privyid/nhp'],
 })
 ```
 
@@ -31,7 +31,7 @@ npx nhp init
 ### Simple Usage
 
 ```ts
-import { defineServer } from '@privyid/nhp'
+import { defineServer } from '@privyid/nhp/core'
 
 export default defineServer([
   {
@@ -49,7 +49,7 @@ So, you can use all utilities from [H3][H3]
 
 ```ts
 import { getCookies, setHeader } from 'h3'
-import { defineServer, defineEventInterceptor } from '@privyid/nhp'
+import { defineServer, defineEventInterceptor } from '@privyid/nhp/core'
 
 export default defineServer([
   {
