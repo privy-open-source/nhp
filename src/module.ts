@@ -2,20 +2,35 @@ import {
   addServerHandler,
   createResolver,
   defineNuxtModule,
+  addImports,
 } from '@nuxt/kit'
 
-export default defineNuxtModule({
+export interface ModuleOptions {
+  autoImport?: boolean,
+}
+
+export default defineNuxtModule<ModuleOptions>({
   meta: {
     name         : '@privyid/nhp',
     configKey    : 'nhp',
     compatibility: { nuxt: '^3.0.0' },
   },
-  setup () {
+  defaults: { autoImport: true },
+  setup (options) {
     const { resolve } = createResolver(import.meta.url)
 
     addServerHandler({
       middleware: true,
       handler   : resolve('./runtime/proxy'),
     })
+
+    if (options.autoImport !== false) {
+      addImports(['defineServer', 'defineEventInterceptor'].map((name) => {
+        return {
+          name,
+          from: '@privyid/nhp/core',
+        }
+      }))
+    }
   },
 })
