@@ -1,5 +1,10 @@
 # NHP
 
+[![npm version][npm-version-src]][npm-version-href]
+[![npm downloads][npm-downloads-src]][npm-downloads-href]
+[![License][license-src]][license-href]
+[![Nuxt][nuxt-src]][nuxt-href]
+
 > Nuxt HTTP Proxy Module
 
 ## Compabilities
@@ -78,5 +83,18 @@ export default defineServer([
 ## License
 
 [MIT License](/LICENSE)
+
+<!-- Badges -->
+[npm-version-src]: https://img.shields.io/npm/v/@privyid/nhp/latest.svg?style=for-the-badge&colorA=18181B&colorB=28CF8D
+[npm-version-href]: https://npmjs.com/package/@privyid/nhp
+
+[npm-downloads-src]: https://img.shields.io/npm/dm/@privyid/nhp.svg?style=for-the-badge&colorA=18181B&colorB=28CF8D
+[npm-downloads-href]: https://npmjs.com/package/@privyid/nhp
+
+[license-src]: https://img.shields.io/npm/l/@privyid/nhp.svg?style=for-the-badge&colorA=18181B&colorB=28CF8D
+[license-href]: https://npmjs.com/package/@privyid/nhp
+
+[nuxt-src]: https://img.shields.io/badge/Nuxt-18181B?style=for-the-badge&logo=nuxt.js
+[nuxt-href]: https://nuxt.com
 
 [H3]: https://github.com/unjs/h3
