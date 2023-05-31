@@ -56,7 +56,7 @@
     "meow": "^12.0.0"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "^0.3.0",
+    "@nuxt/module-builder": "^0.4.0",
     "@nuxt/schema": "^3.0.0",
     "@privyid/eslint-config-persona": "^0.13.0",
     "@types/connect": "^3.4.35",
