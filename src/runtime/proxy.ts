@@ -12,7 +12,10 @@ for (const server of config) {
       ...server,
       target      : server.targetUrl,
       changeOrigin: true,
-      pathRewrite : { [`^${server.baseUrl}`]: '/', ...server.pathRewrite },
+      pathRewrite : {
+        ...server.pathRewrite,
+        [`^${server.baseUrl}`]: '/'
+      },
     })
 
     app.use(proxy as connect.NextHandleFunction)
