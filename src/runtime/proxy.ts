@@ -14,7 +14,7 @@ for (const server of config) {
       changeOrigin: true,
       pathRewrite : {
         ...server.pathRewrite,
-        [`^${server.baseUrl}`]: '/'
+        [`^${server.baseUrl}`]: '/',
       },
     })
 
