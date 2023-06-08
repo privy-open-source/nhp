@@ -7,6 +7,25 @@ export interface ApiServer extends Options {
   baseUrl: string,
   targetUrl?: string,
   schemaUrl?: string,
+  /**
+   * Proxy type
+   * @default 'basic''
+   */
+  proxyType?: 'basic' | 'dynamic',
+  /**
+   * White hostname for dynamic proxy
+   * @default []
+   */
+  allowFrom?: string | string[],
+  /**
+   *  Force add download header when query params 'download' present (dynamic proxy)
+   * @default true
+   */
+  downloadHeader?: boolean,
+  /**
+   * Download extention
+   */
+  downloadExt?: string,
 }
 
 export type EventInterceptor = (proxyEvent: H3Event, event: H3Event) => unknown | Promise<unknown>

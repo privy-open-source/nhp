@@ -1234,6 +1234,7 @@ __metadata:
     meow: ^12.0.0
     nuxt: ^3.0.0
     typescript: ^5.0.0
+    ufo: ^1.1.2
   bin:
     nhp: ./bin/nhp.js
   languageName: unknown
