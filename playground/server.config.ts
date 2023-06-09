@@ -1,3 +1,4 @@
+import { getCookie, setHeader } from 'h3'
 import { defineServer, defineEventInterceptor } from '../src/core'
 
 export default defineServer([
@@ -16,5 +17,13 @@ export default defineServer([
       if (token)
         setHeader(proxyEvent, 'Authentication', `Bearer ${token}`)
     }),
+  },
+  {
+    name          : 'force-download',
+    baseUrl       : '/force/download',
+    proxyType     : 'dynamic',
+    allowFrom     : ['dummyjson.com'],
+    downloadExt   : '.pdf',
+    downloadHeader: true,
   },
 ])

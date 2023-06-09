@@ -1,7 +1,7 @@
 {
   "name": "@privyid/nhp",
   "description": "Nuxt HTTP Proxy Module",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "packageManager": "yarn@3.6.0",
   "repository": {
     "type": "git",
@@ -53,7 +53,8 @@
     "fs-extra": "^11.1.0",
     "h3": "^1.6.0",
     "http-proxy-middleware": "^2.0.6",
-    "meow": "^12.0.0"
+    "meow": "^12.0.0",
+    "ufo": "^1.1.2"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.4.0",
@@ -65,7 +66,7 @@
     "@typescript-eslint/parser": "^5.54.1",
     "@vue/eslint-config-typescript": "^11.0.2",
     "eslint": "^8.35.0",
-    "eslint-config-standard-with-typescript": "^34.0.0",
+    "eslint-config-standard-with-typescript": "^35.0.0",
     "eslint-formatter-pretty": "^5.0.0",
     "eslint-plugin-align-assignments": "^1.1.2",
     "eslint-plugin-import": "^2.27.5",

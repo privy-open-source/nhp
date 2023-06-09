@@ -71,6 +71,27 @@ export default defineServer([
 ])
 ```
 
+### Dynamic Proxy
+
+Dynamic Proxy is special type proxy, which can dynamically target server based on query params `url`. It usefull for proxy download server which ussually changes alltime.
+
+Example:
+
+```ts
+export default defineServer([
+  {
+    name          : 'force-download',
+    baseUrl       : '/force/download',
+    proxyType     : 'dynamic',
+    allowFrom     : ['my.cdn.com', 's3.amazon.com'], // or using string with delimeter ;
+    downloadHeader: true,
+    downloadExt   : '.pdf',
+  },
+])
+```
+
+Then, you can access `/force/download?url=http://my.cdn.com/xxxxx/`
+
 ## Contribution
 
 - Clone this repository
