@@ -1,10 +1,10 @@
 import type connect from 'connect'
-import { getQuery, parseURL } from 'ufo'
-import { type ApiServer } from '../../core'
-import { createProxyMiddleware } from 'http-proxy-middleware'
+import type { ApiServer } from '../../core'
 import type { IncomingMessage } from 'node:http'
+import { getQuery, parseURL } from 'ufo'
+import { createProxyMiddleware } from 'http-proxy-middleware'
 
-function validURL (string) {
+function validURL (url: string) {
   const pattern = new RegExp('^(https?:\\/\\/)' // protocol
     + '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' // domain name
     + '((\\d{1,3}\\.){3}\\d{1,3}))' // OR ip (v4) address
@@ -12,14 +12,14 @@ function validURL (string) {
     + '(\\?[;&a-z\\d%_.~+=-]*)?' // query string
     + '(\\#[-a-z\\d_]*)?$', 'i') // fragment locator
 
-  return !!pattern.test(string)
+  return !!pattern.test(url)
 }
 
 export default function addDynamicProxy (app: connect.Server, config: ApiServer) {
   app.use(config.baseUrl, (req, res, next) => {
     const query = getQuery(req.url as string)
 
-    if (!query.url || !validURL(query.url)) {
+    if (!query.url || !validURL(query.url as string)) {
       res.writeHead(404)
       res.end(JSON.stringify({
         code   : 404,

@@ -23,7 +23,7 @@ export interface ApiServer extends Options {
    */
   downloadHeader?: boolean,
   /**
-   * Download extention
+   * Download extension (dynamic proxy)
    */
   downloadExt?: string,
 }
