@@ -15,7 +15,7 @@ export default defineServer([
       const token = getCookie(event, 'session/token')
 
       if (token)
-        setHeader(proxyEvent, 'Authentication', `Bearer ${token}`)
+        setHeader(proxyEvent, 'Authorization', `Bearer ${token}`)
     }),
   },
   {
