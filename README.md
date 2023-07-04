@@ -53,7 +53,7 @@ NHP provide util `defineEventInterceptor` for `onProxyReq` and `onProxyRes`, it 
 So, you can use all utilities from [H3][H3]
 
 ```ts
-import { getCookies, setHeader } from 'h3'
+import { getCookie, setHeader } from 'h3'
 import { defineServer, defineEventInterceptor } from '@privyid/nhp/core'
 
 export default defineServer([
@@ -65,7 +65,7 @@ export default defineServer([
       const token = getCookie(event, 'session/token')
 
       if (token)
-        setHeader(proxyEvent, 'Authentication', `Bearer ${token}`)
+        setHeader(proxyEvent, 'Authorization', `Bearer ${token}`)
     }),
   },
 ])

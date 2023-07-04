@@ -1,6 +1,7 @@
 import type * as http from 'node:http'
 import { type H3Event, createEvent } from 'h3'
 import { type Options } from 'http-proxy-middleware'
+import type { Request, Response } from 'http-proxy-middleware/dist/types'
 
 export interface ApiServer extends Options {
   name: string,
@@ -35,11 +36,11 @@ export type EventInterceptor = (proxyEvent: H3Event, event: H3Event) => unknown 
  * @param handler H3-Compabilities event handler
  */
 export function defineEventInterceptor (handler: EventInterceptor) {
-  return (proxy: unknown, req: http.IncomingMessage, res: http.ServerResponse<http.IncomingMessage>) => {
-    const event      = createEvent(req, res)
+  return (proxy: http.ClientRequest | http.IncomingMessage, req: Request, res: Response) => {
+    const event      = createEvent(req as http.IncomingMessage, res as http.ServerResponse<http.IncomingMessage>)
     const proxyEvent = createEvent(
-      proxy as http.IncomingMessage,
-      proxy as http.ServerResponse<http.IncomingMessage>,
+      proxy as unknown as http.IncomingMessage,
+      proxy as unknown as http.ServerResponse<http.IncomingMessage>,
     )
 
     handler(proxyEvent, event)
