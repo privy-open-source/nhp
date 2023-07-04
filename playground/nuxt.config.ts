@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   typescript: {
     tsConfig: {
       compilerOptions: {
-        strict          : false,
+        strict          : true,
         strictNullChecks: true,
       },
     },
