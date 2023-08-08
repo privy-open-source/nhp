@@ -3,7 +3,11 @@
 import meow from 'meow'
 import fse from 'fs-extra'
 import console from 'consola'
-import { dirname, resolve } from 'node:path'
+import {
+  dirname,
+  resolve,
+  relative,
+} from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { ApiServer } from '../core'
 import { loadConfig } from 'unconfig'
@@ -83,7 +87,7 @@ async function main () {
                 await saveFile(filename, result)
                 await lintFile(filename)
 
-                console.success('Successfully generated', filename)
+                console.success('Schema generated successfully:', relative(process.cwd(), filename))
               })
             }
           } catch (error) {

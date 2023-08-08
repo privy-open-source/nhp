@@ -43,13 +43,13 @@ export interface ApiServer extends Options {
    */
   schemaUrl?: string,
   /**
-   * Schema output dest
-   * @default './api''
+   * Schema output destination folder
+   * @default './api'
    */
   schemaDest?: string,
   /**
    * Proxy type
-   * @default 'basic''
+   * @default 'basic'
    */
   proxyType?: 'basic' | 'dynamic',
   /**
@@ -58,7 +58,7 @@ export interface ApiServer extends Options {
    */
   allowFrom?: string | string[],
   /**
-   *  Force add download header when query params 'download' present (dynamic proxy)
+   * Force add download header when query params 'download' present (dynamic proxy)
    * @default true
    */
   downloadHeader?: boolean,
