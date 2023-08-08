@@ -131,3 +131,5 @@ dist
 .pnp.*
 
 /server.config.ts
+/sample.json
+/api
