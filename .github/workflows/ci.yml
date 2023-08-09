@@ -5,10 +5,11 @@ name: CI
 
 on:
   push:
-    branches: [ $default-branch ]
-
+    branches: [main]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [main]
+  merge_group:
+    types: [checks_requested]
 
 jobs:
   build:
@@ -46,5 +47,11 @@ jobs:
       - name: Install Deps
         run: yarn install --immutable
 
+      - name: Run Prepare
+        run: yarn dev:prepare
+
+      - name: Build Package
+        run: yarn build
+
       - name: Run Linter
-        run: yarn lint:ci
+        run: yarn lint
