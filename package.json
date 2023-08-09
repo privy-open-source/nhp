@@ -38,13 +38,20 @@
     "bin"
   ],
   "scripts": {
-    "prepack": "yarn build",
+    "prepack": "yarn build && pinst --disable",
     "dev": "nuxi dev playground",
     "build": "nuxt-module-build",
     "lint": "eslint . --ext .js,.vue,.ts --format pretty",
     "fix": "yarn lint --fix",
     "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground"
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
+    "postinstall": "husky install",
+    "postpack": "pinst --enable"
+  },
+  "lint-staged": {
+    "*.(js|ts|vue)": [
+      "eslint --fix"
+    ]
   },
   "dependencies": {
     "@nuxt/kit": "^3.0.0",
@@ -62,6 +69,8 @@
     "unconfig": "^0.3.10"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-conventional": "^17.6.7",
     "@nuxt/module-builder": "^0.4.0",
     "@nuxt/schema": "^3.0.0",
     "@privyid/eslint-config-persona": "^0.18.0",
@@ -83,7 +92,10 @@
     "eslint-plugin-unicorn": "^47.0.0",
     "eslint-plugin-varspacing": "^1.2.2",
     "eslint-plugin-vue": "^9.9.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.2.3",
     "nuxt": "^3.0.0",
+    "pinst": "^3.0.0",
     "typescript": "^5.0.0"
   },
   "publishConfig": {

@@ -24,8 +24,8 @@ export function getURL (rawURL: string): string {
   const url    = config.swagger?.formatURL?.(rawURL) ?? rawURL
 
   return url
-    .replaceAll(/{(\w+)}/g, '${$1}')
-    .replaceAll(/:(\w+)/g, '${$1}')
+    .replaceAll(/{(\w+)}/g, (x) => `\${${camelCase(x)}}`)
+    .replaceAll(/:(\w+)/g, (x) => `\${${camelCase(x)}}`)
 }
 
 export function getMethod (method: string, url: string) {
@@ -95,7 +95,7 @@ export function writeMethod (url: string, method: string, schema: OpenAPIV2.Oper
   if (schema.parameters) {
     for (const param of schema.parameters) {
       if (isParamPath(param))
-        params.push(`${param.name}: ${resolveType(param as unknown as OpenAPIV2.SchemaObject)}`)
+        params.push(`${camelCase(param.name)}: ${resolveType(param as unknown as OpenAPIV2.SchemaObject)}`)
       else if (!isMultipart && isParamBody(param))
         params.push(`body: ${resolveType(param.schema)}`)
     }
