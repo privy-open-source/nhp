@@ -3,14 +3,53 @@ import { type H3Event, createEvent } from 'h3'
 import { type Options } from 'http-proxy-middleware'
 import type { Request, Response } from 'http-proxy-middleware/dist/types'
 
+export interface SwaggerConfig {
+  /**
+   * Tranform interface model name
+   * @param name
+   */
+  formatModel?: (name: string) => string,
+  /**
+   * Tranform endpoint URL
+   * @param path
+   */
+  formatURL?: (path: string) => string,
+  /**
+   * Tranform function name
+   * @param method
+   * @param path
+   */
+  formatMethod?: (method: string, path: string) => string,
+}
+
 export interface ApiServer extends Options {
+  /**
+   * Uniq name
+   * @requires
+   */
   name: string,
+  /**
+   * Base proxy path
+   * @requires
+   */
   baseUrl: string,
+  /**
+   * Target proxy
+   * @requires
+   */
   targetUrl?: string,
+  /**
+   * API schema url
+   */
   schemaUrl?: string,
   /**
+   * Schema output destination folder
+   * @default './api'
+   */
+  schemaDest?: string,
+  /**
    * Proxy type
-   * @default 'basic''
+   * @default 'basic'
    */
   proxyType?: 'basic' | 'dynamic',
   /**
@@ -19,7 +58,7 @@ export interface ApiServer extends Options {
    */
   allowFrom?: string | string[],
   /**
-   *  Force add download header when query params 'download' present (dynamic proxy)
+   * Force add download header when query params 'download' present (dynamic proxy)
    * @default true
    */
   downloadHeader?: boolean,
@@ -27,6 +66,10 @@ export interface ApiServer extends Options {
    * Download extension (dynamic proxy)
    */
   downloadExt?: string,
+  /**
+   * Swagger transformer config
+   */
+  swagger?: SwaggerConfig,
 }
 
 export type EventInterceptor = (proxyEvent: H3Event, event: H3Event) => unknown | Promise<unknown>
@@ -50,6 +93,6 @@ export function defineEventInterceptor (handler: EventInterceptor) {
 /**
  * Define proxy server
  */
-export function defineServer (servers: ApiServer[]) {
+export function defineServer (servers: ApiServer[]): ApiServer[] {
   return servers
 }

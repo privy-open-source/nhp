@@ -1,4 +1,4 @@
-import { defineServer } from '@privyid/nhp'
+import { defineServer } from '@privyid/nhp/core'
 
 export default defineServer([
   /* {

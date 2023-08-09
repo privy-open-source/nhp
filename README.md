@@ -62,7 +62,7 @@ export default defineServer([
     baseUrl   : '/api/bin',
     targetUrl : 'https://httpbin.org',
     onProxyReq: defineEventInterceptor((proxyEvent, event) => {
-      const token = getCookie(event, 'session/token')
+      const token = getCookie(event, 'oauth/token')
 
       if (token)
         setHeader(proxyEvent, 'Authorization', `Bearer ${token}`)
@@ -91,6 +91,29 @@ export default defineServer([
 ```
 
 Then, you can access `/force/download?url=http://my.cdn.com/xxxxx/`
+
+### Schema Code-Generator (Swagger)
+
+NHP include code generator to transform OpenAPI v2 to Typescript. Just add `schemaURL` in your server then run `npx nhp schema`,
+
+```ts
+export default defineServer([
+  {
+    name     : 'server-b',
+    baseUrl  : '/api/server-b',
+    // ...
+    // Using local json
+    schemaUrl: './path/doc.json',
+  },
+  {
+    name     : 'server-a',
+    baseUrl  : '/api/server-a',
+    // ...
+    // Using remote schema
+    schemaUrl: 'http://server-a.dev/swagger/doc.json',
+  },
+])
+```
 
 ## Contribution
 
