@@ -1025,7 +1025,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint-community/eslint-utils@npm:^4.2.0, @eslint-community/eslint-utils@npm:^4.3.0, @eslint-community/eslint-utils@npm:^4.4.0":
+"@eslint-community/eslint-utils@npm:^4.2.0, @eslint-community/eslint-utils@npm:^4.4.0":
   version: 4.4.0
   resolution: "@eslint-community/eslint-utils@npm:4.4.0"
   dependencies:
@@ -4511,19 +4511,19 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-vue@npm:^9.9.0":
-  version: 9.15.1
-  resolution: "eslint-plugin-vue@npm:9.15.1"
+  version: 9.16.1
+  resolution: "eslint-plugin-vue@npm:9.16.1"
   dependencies:
-    "@eslint-community/eslint-utils": ^4.3.0
+    "@eslint-community/eslint-utils": ^4.4.0
     natural-compare: ^1.4.0
-    nth-check: ^2.0.1
-    postcss-selector-parser: ^6.0.9
-    semver: ^7.3.5
-    vue-eslint-parser: ^9.3.0
+    nth-check: ^2.1.1
+    postcss-selector-parser: ^6.0.13
+    semver: ^7.5.4
+    vue-eslint-parser: ^9.3.1
     xml-name-validator: ^4.0.0
   peerDependencies:
     eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
-  checksum: b1cdb16e43e681938c25f1d3f2d5d0d76a99172efdcfa0fa98cdb21122d520e12ae2f8ff2b40bf47a5b9f476f54199494a2851d99edc5bad0a25156ef38eeac4
+  checksum: b2f9d0deefb124faacbd1aaf3f593962cd13547f8816782987299cb089693cec5e6e4036227242ad1dc17b6772fb579bc2042942486017a00c3c05eefeea36bd
   languageName: node
   linkType: hard
 
@@ -5949,6 +5949,15 @@ __metadata:
   dependencies:
     has: ^1.0.3
   checksum: f04ea30533b5e62764e7b2e049d3157dc0abd95ef44275b32489ea2081176ac9746ffb1cdb107445cf1ff0e0dfcad522726ca27c27ece64dadf3795428b8e468
+  languageName: node
+  linkType: hard
+
+"is-core-module@npm:^2.13.0":
+  version: 2.13.0
+  resolution: "is-core-module@npm:2.13.0"
+  dependencies:
+    has: ^1.0.3
+  checksum: 053ab101fb390bfeb2333360fd131387bed54e476b26860dc7f5a700bbf34a0ec4454f7c8c4d43e8a0030957e4b3db6e16d35e1890ea6fb654c833095e040355
   languageName: node
   linkType: hard
 
@@ -7521,7 +7530,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nth-check@npm:^2.0.1":
+"nth-check@npm:^2.0.1, nth-check@npm:^2.1.1":
   version: 2.1.1
   resolution: "nth-check@npm:2.1.1"
   dependencies:
@@ -8383,7 +8392,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-selector-parser@npm:^6.0.11":
+"postcss-selector-parser@npm:^6.0.11, postcss-selector-parser@npm:^6.0.13":
   version: 6.0.13
   resolution: "postcss-selector-parser@npm:6.0.13"
   dependencies:
@@ -8393,7 +8402,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-selector-parser@npm:^6.0.4, postcss-selector-parser@npm:^6.0.5, postcss-selector-parser@npm:^6.0.9":
+"postcss-selector-parser@npm:^6.0.4, postcss-selector-parser@npm:^6.0.5":
   version: 6.0.11
   resolution: "postcss-selector-parser@npm:6.0.11"
   dependencies:
@@ -8888,7 +8897,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.22.2, resolve@npm:^1.22.3":
+"resolve@npm:^1.22.2":
   version: 1.22.3
   resolution: "resolve@npm:1.22.3"
   dependencies:
@@ -8898,6 +8907,19 @@ __metadata:
   bin:
     resolve: bin/resolve
   checksum: fb834b81348428cb545ff1b828a72ea28feb5a97c026a1cf40aa1008352c72811ff4d4e71f2035273dc536dcfcae20c13604ba6283c612d70fa0b6e44519c374
+  languageName: node
+  linkType: hard
+
+"resolve@npm:^1.22.3":
+  version: 1.22.4
+  resolution: "resolve@npm:1.22.4"
+  dependencies:
+    is-core-module: ^2.13.0
+    path-parse: ^1.0.7
+    supports-preserve-symlinks-flag: ^1.0.0
+  bin:
+    resolve: bin/resolve
+  checksum: 23f25174c2736ce24c6d918910e0d1f89b6b38fefa07a995dff864acd7863d59a7f049e691f93b4b2ee29696303390d921552b6d1b841ed4a8101f517e1d0124
   languageName: node
   linkType: hard
 
@@ -8914,7 +8936,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@^1.22.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.3#~builtin<compat/resolve>":
+"resolve@patch:resolve@^1.22.2#~builtin<compat/resolve>":
   version: 1.22.3
   resolution: "resolve@patch:resolve@npm%3A1.22.3#~builtin<compat/resolve>::version=1.22.3&hash=c3c19d"
   dependencies:
@@ -8924,6 +8946,19 @@ __metadata:
   bin:
     resolve: bin/resolve
   checksum: ad59734723b596d0891321c951592ed9015a77ce84907f89c9d9307dd0c06e11a67906a3e628c4cae143d3e44898603478af0ddeb2bba3f229a9373efe342665
+  languageName: node
+  linkType: hard
+
+"resolve@patch:resolve@^1.22.3#~builtin<compat/resolve>":
+  version: 1.22.4
+  resolution: "resolve@patch:resolve@npm%3A1.22.4#~builtin<compat/resolve>::version=1.22.4&hash=c3c19d"
+  dependencies:
+    is-core-module: ^2.13.0
+    path-parse: ^1.0.7
+    supports-preserve-symlinks-flag: ^1.0.0
+  bin:
+    resolve: bin/resolve
+  checksum: c45f2545fdc4d21883861b032789e20aa67a2f2692f68da320cc84d5724cd02f2923766c5354b3210897e88f1a7b3d6d2c7c22faeead8eed7078e4c783a444bc
   languageName: node
   linkType: hard
 
@@ -9192,6 +9227,17 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: 9d58db16525e9f749ad0a696a1f27deabaa51f66e91d2fa2b0db3de3e9644e8677de3b7d7a03f4c15bc81521e0c3916d7369e0572dbde250d9bedf5194e2a8a7
+  languageName: node
+  linkType: hard
+
+"semver@npm:^7.5.4":
+  version: 7.5.4
+  resolution: "semver@npm:7.5.4"
+  dependencies:
+    lru-cache: ^6.0.0
+  bin:
+    semver: bin/semver.js
+  checksum: 12d8ad952fa353b0995bf180cdac205a4068b759a140e5d3c608317098b3575ac2f1e09182206bf2eb26120e1c0ed8fb92c48c592f6099680de56bb071423ca3
   languageName: node
   linkType: hard
 
@@ -10645,7 +10691,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-eslint-parser@npm:^9.1.1, vue-eslint-parser@npm:^9.3.0":
+"vue-eslint-parser@npm:^9.1.1":
   version: 9.3.0
   resolution: "vue-eslint-parser@npm:9.3.0"
   dependencies:
@@ -10659,6 +10705,23 @@ __metadata:
   peerDependencies:
     eslint: ">=6.0.0"
   checksum: 9bdf375655c405f49a6e46e20127e42e2cb03ec63e811baf9798da7b881769653bb56aba7007d7e6584b8b22c14f0ffbdaf8fa3a902bd52ce9ff947b78e55188
+  languageName: node
+  linkType: hard
+
+"vue-eslint-parser@npm:^9.3.1":
+  version: 9.3.1
+  resolution: "vue-eslint-parser@npm:9.3.1"
+  dependencies:
+    debug: ^4.3.4
+    eslint-scope: ^7.1.1
+    eslint-visitor-keys: ^3.3.0
+    espree: ^9.3.1
+    esquery: ^1.4.0
+    lodash: ^4.17.21
+    semver: ^7.3.6
+  peerDependencies:
+    eslint: ">=6.0.0"
+  checksum: 6d1476b45fcc5b456a1e5c0f33ec695cf1d392ca6113250d5e3441e6cf3b2a0ec28a9455699363641dfb7c48358f215db07856c98385a31ace9bc58196f4156e
   languageName: node
   linkType: hard
 
