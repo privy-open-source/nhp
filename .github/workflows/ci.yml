@@ -1,4 +1,4 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
 name: CI
@@ -12,19 +12,54 @@ on:
     types: [checks_requested]
 
 jobs:
-  build:
+  analyze:
+    runs-on: ${{ matrix.os }}
 
-    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
 
     strategy:
+      fail-fast: false
       matrix:
-        node-version:
-          - 16
-          - 18
-          - 20
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        os:
+          - ubuntu-latest
+        language:
+          - javascript
 
     steps:
+      - name: Git Checkout
+        uses: actions/checkout@v3
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v2
+
+      - name: Run CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+        node-version:
+          - 18
+
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: "recursive"
+
       - name: Get Cache Dir
         id: yarn-cache-dir
         run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
@@ -34,7 +69,7 @@ jobs:
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
           path: ${{ steps.yarn-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-
           restore-keys: |
             ${{ runner.os }}-yarn-
 
