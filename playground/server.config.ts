@@ -3,9 +3,15 @@ import { defineServer, defineEventInterceptor } from '../src/core'
 
 export default defineServer([
   {
-    name     : 'coba',
-    baseUrl  : '/api/coba',
+    name     : 'document',
+    baseUrl  : '/api/document',
     targetUrl: process.env.COBA_BASEURL,
+    schemaUrl: './sample.json',
+    swagger  : {
+      formatURL (url) {
+        return url.replace('/external', '')
+      },
+    },
   },
   {
     name      : 'bin',
