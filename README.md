@@ -115,6 +115,8 @@ export default defineServer([
 ])
 ```
 
+See [example](./playground/) and result [here](./playground/api/document.ts)
+
 ## Contribution
 
 - Clone this repository

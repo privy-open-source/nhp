@@ -1,0 +1,3028 @@
+{
+  "schemes": ["http","https"],
+  "consumes": [
+      "multipart/form-data"
+  ],
+  "swagger": "2.0",
+  "info": {
+      "description": "This service uses to upload, share, upload and share, view document and check document status for merchant.",
+      "title": "B2B API",
+      "license": {
+          "name": "PT. Privy Identitas Digital"
+      },
+      "version": "1.0"
+  },
+  "host": "http://localhost:8000",
+  "basePath": "/api/v1",
+  "paths": {
+      "/external/documents": {
+          "get": {
+              "security": [
+                  {
+                      "BasicAuth": []
+                  }
+              ],
+              "description": "List document.",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "application/json"
+              ],
+              "tags": [
+                  "Documents API"
+              ],
+              "summary": "Uses to list document",
+              "parameters": [
+                  {
+                      "enum": [
+                          "en",
+                          "id"
+                      ],
+                      "type": "string",
+                      "default": "id",
+                      "description": "Fill with language code",
+                      "name": "Accept-Language",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with request id",
+                      "name": "Set-Request-Id",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with merchant key",
+                      "name": "Application-Key",
+                      "in": "header",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "default": "1",
+                      "description": "Fill with page (min: 1)",
+                      "name": "page",
+                      "in": "query",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "default": "25",
+                      "description": "Fill with per page (max: 25)",
+                      "name": "per_page",
+                      "in": "query",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "default": "created_at",
+                      "description": "Fill with transaction field",
+                      "name": "order_by",
+                      "in": "query",
+                      "required": true
+                  },
+                  {
+                      "enum": [
+                          "asc",
+                          "desc"
+                      ],
+                      "type": "string",
+                      "default": "desc",
+                      "description": "Fill with ordering method",
+                      "name": "order_method",
+                      "in": "query",
+                      "required": true
+                  },
+                  {
+                      "enum": [
+                          "and",
+                          "or"
+                      ],
+                      "type": "string",
+                      "description": "Fill with search condition",
+                      "name": "search_condition",
+                      "in": "query"
+                  },
+                  {
+                      "type": "array",
+                      "items": {
+                          "type": "string"
+                      },
+                      "collectionFormat": "multi",
+                      "description": "Fill with equal field value",
+                      "name": "equal[id]",
+                      "in": "query"
+                  },
+                  {
+                      "type": "array",
+                      "items": {
+                          "type": "string"
+                      },
+                      "collectionFormat": "multi",
+                      "description": "Fill with equal field value",
+                      "name": "equal[from]",
+                      "in": "query"
+                  },
+                  {
+                      "type": "array",
+                      "items": {
+                          "type": "string"
+                      },
+                      "collectionFormat": "multi",
+                      "description": "Fill with equal field value",
+                      "name": "equal[to]",
+                      "in": "query"
+                  },
+                  {
+                      "type": "array",
+                      "items": {
+                          "type": "string"
+                      },
+                      "collectionFormat": "multi",
+                      "description": "Fill with equal field value",
+                      "name": "equal[category]",
+                      "in": "query"
+                  },
+                  {
+                      "type": "array",
+                      "items": {
+                          "type": "string"
+                      },
+                      "collectionFormat": "multi",
+                      "description": "Fill with equal field value",
+                      "name": "equal[currency]",
+                      "in": "query"
+                  },
+                  {
+                      "type": "array",
+                      "items": {
+                          "type": "string"
+                      },
+                      "collectionFormat": "multi",
+                      "description": "Fill with equal field value",
+                      "name": "equal[remark]",
+                      "in": "query"
+                  },
+                  {
+                      "type": "string",
+                      "default": "created_at",
+                      "description": "Fill with time field",
+                      "name": "date_range_by",
+                      "in": "query"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with start date (yyyy-mm-dd)",
+                      "name": "date_start",
+                      "in": "query"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with end date (yyyy-mm-dd)",
+                      "name": "date_end",
+                      "in": "query"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.SuccessOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "$ref": "#/definitions/ListDocumentResponse"
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "403": {
+                      "description": "Forbidden",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "404": {
+                      "description": "Not Found",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "422": {
+                      "description": "Unprocessable Entity",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.ErrorOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "type": "array",
+                                          "items": {
+                                              "$ref": "#/definitions/response.ErrorOutputData"
+                                          }
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  }
+              }
+          },
+          "post": {
+              "security": [
+                  {
+                      "BasicAuth": []
+                  }
+              ],
+              "description": "Upload document.",
+              "consumes": [
+                  "multipart/form-data"
+              ],
+              "produces": [
+                  "application/json"
+              ],
+              "tags": [
+                  "Documents API"
+              ],
+              "summary": "Uses to upload document",
+              "parameters": [
+                  {
+                      "enum": [
+                          "en",
+                          "id"
+                      ],
+                      "type": "string",
+                      "default": "id",
+                      "description": "Fill with language code",
+                      "name": "Accept-Language",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with request id",
+                      "name": "Set-Request-Id",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with merchant key",
+                      "name": "Application-Key",
+                      "in": "header",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with document title",
+                      "name": "title",
+                      "in": "formData",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with document description",
+                      "name": "description",
+                      "in": "formData"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with category id (uuid)",
+                      "name": "category_id",
+                      "in": "formData",
+                      "required": true
+                  },
+                  {
+                      "enum": [
+                          "SERIAL",
+                          "PARALLEL",
+                          "COMBINED"
+                      ],
+                      "type": "string",
+                      "default": "PARALLEL",
+                      "description": "Fill with document participant action sequence",
+                      "name": "sequence",
+                      "in": "formData",
+                      "required": true
+                  },
+                  {
+                      "type": "file",
+                      "description": "Fill with document file (pdf)",
+                      "name": "document",
+                      "in": "formData",
+                      "required": true
+                  },
+                  {
+                      "description": "Fill with document owner",
+                      "name": "owner",
+                      "in": "body",
+                      "required": true,
+                      "schema": {
+                          "$ref": "#/definitions/OwnerIdentifier"
+                      }
+                  },
+                  {
+                      "description": "Fill with qr_code position",
+                      "name": "qr_code",
+                      "in": "body",
+                      "schema": {
+                          "$ref": "#/definitions/QRCodeSpecification"
+                      }
+                  },
+                  {
+                      "enum": [
+                          "KEEP",
+                          "REMOVE"
+                      ],
+                      "type": "string",
+                      "default": "KEEP",
+                      "description": "Fill with KEEP or REMOVE (if the document is already digitally signed)",
+                      "name": "overwrite",
+                      "in": "formData"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with document password (if the document is protected by password)",
+                      "name": "password",
+                      "in": "formData"
+                  }
+              ],
+              "responses": {
+                  "201": {
+                      "description": "Created",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.SuccessOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "$ref": "#/definitions/UploadDocumentResponse"
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "403": {
+                      "description": "Forbidden",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "404": {
+                      "description": "Not Found",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "422": {
+                      "description": "Unprocessable Entity",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.ErrorOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "type": "array",
+                                          "items": {
+                                              "$ref": "#/definitions/response.ErrorOutputData"
+                                          }
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  }
+              }
+          }
+      },
+      "/external/documents/multiple-upload": {
+          "post": {
+              "security": [
+                  {
+                      "BasicAuth": []
+                  }
+              ],
+              "description": "MultipleUpload document.",
+              "consumes": [
+                  "multipart/form-data"
+              ],
+              "produces": [
+                  "application/json"
+              ],
+              "tags": [
+                  "VVIP API",
+                  "Documents API"
+              ],
+              "summary": "Uses to upload multiple document",
+              "parameters": [
+                  {
+                      "enum": [
+                          "en",
+                          "id"
+                      ],
+                      "type": "string",
+                      "default": "id",
+                      "description": "Fill with language code",
+                      "name": "Accept-Language",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with request id",
+                      "name": "Set-Request-Id",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with merchant key",
+                      "name": "Application-Key",
+                      "in": "header",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with user access token",
+                      "name": "Access-Token",
+                      "in": "header",
+                      "required": true
+                  },
+                  {
+                      "type": "file",
+                      "description": "Fill with pdf file",
+                      "name": "documents[0]file",
+                      "in": "formData",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with document title",
+                      "name": "documents[0]title",
+                      "in": "formData",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with category id (uuid)",
+                      "name": "documents[0]category_id",
+                      "in": "formData"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with placement id (uuid)",
+                      "name": "documents[0]placement_id",
+                      "in": "formData"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with document description",
+                      "name": "documents[0]description",
+                      "in": "formData"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with PrivyID",
+                      "name": "documents[0]owner",
+                      "in": "formData"
+                  },
+                  {
+                      "enum": [
+                          "KEEP",
+                          "REMOVE"
+                      ],
+                      "type": "string",
+                      "default": "KEEP",
+                      "description": "Fill with overwrite mode",
+                      "name": "documents[0]overwrite",
+                      "in": "formData"
+                  },
+                  {
+                      "description": "Fill with qr code specification",
+                      "name": "documents[0]qr_code",
+                      "in": "body",
+                      "schema": {
+                          "$ref": "#/definitions/QRCodeSpecification"
+                      }
+                  },
+                  {
+                      "description": "Fill with watermark specification",
+                      "name": "documents[0]watermark",
+                      "in": "body",
+                      "schema": {
+                          "$ref": "#/definitions/WatermarkSpecification"
+                      }
+                  }
+              ],
+              "responses": {
+                  "201": {
+                      "description": "Created",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.SuccessOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "type": "array",
+                                          "items": {
+                                              "$ref": "#/definitions/Info.Presenter"
+                                          }
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "403": {
+                      "description": "Forbidden",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "404": {
+                      "description": "Not Found",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "422": {
+                      "description": "Unprocessable Entity",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.ErrorOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "type": "array",
+                                          "items": {
+                                              "$ref": "#/definitions/response.ErrorOutputData"
+                                          }
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  }
+              }
+          }
+      },
+      "/external/documents/upload-share": {
+          "post": {
+              "security": [
+                  {
+                      "BasicAuth": []
+                  }
+              ],
+              "description": "UploadShare document.",
+              "consumes": [
+                  "multipart/form-data"
+              ],
+              "produces": [
+                  "application/json"
+              ],
+              "tags": [
+                  "Documents API"
+              ],
+              "summary": "Uses to upload and share document",
+              "parameters": [
+                  {
+                      "enum": [
+                          "en",
+                          "id"
+                      ],
+                      "type": "string",
+                      "default": "id",
+                      "description": "Fill with language code",
+                      "name": "Accept-Language",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with request id",
+                      "name": "Set-Request-Id",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with merchant key",
+                      "name": "Application-Key",
+                      "in": "header",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with document title",
+                      "name": "title",
+                      "in": "formData",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with document description",
+                      "name": "description",
+                      "in": "formData"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with category id (uuid)",
+                      "name": "category_id",
+                      "in": "formData",
+                      "required": true
+                  },
+                  {
+                      "enum": [
+                          "SHARE_ONLY",
+                          "SIGN_SHARE",
+                          "SIGN_SEAL_SHARE"
+                      ],
+                      "type": "string",
+                      "default": "SHARE_ONLY",
+                      "description": "Fill with document workflow (default: SHARE_ONLY)",
+                      "name": "workflow",
+                      "in": "formData"
+                  },
+                  {
+                      "enum": [
+                          "SERIAL",
+                          "PARALLEL",
+                          "COMBINED"
+                      ],
+                      "type": "string",
+                      "default": "PARALLEL",
+                      "description": "Fill with document participant action sequence",
+                      "name": "sequence",
+                      "in": "formData",
+                      "required": true
+                  },
+                  {
+                      "type": "file",
+                      "description": "Fill with document file (pdf)",
+                      "name": "document",
+                      "in": "formData",
+                      "required": true
+                  },
+                  {
+                      "description": "Fill with document owner",
+                      "name": "owner",
+                      "in": "body",
+                      "required": true,
+                      "schema": {
+                          "$ref": "#/definitions/OwnerIdentifier"
+                      }
+                  },
+                  {
+                      "description": "Fill with document participants",
+                      "name": "participants",
+                      "in": "body",
+                      "required": true,
+                      "schema": {
+                          "description": "holds the list of participant of document",
+                          "type": "array",
+                          "items": {
+                              "$ref": "#/definitions/Participant"
+                          }
+                      }
+                  },
+                  {
+                      "description": "Fill with qr_code position",
+                      "name": "qr_code",
+                      "in": "body",
+                      "schema": {
+                          "$ref": "#/definitions/QRCodeSpecification"
+                      }
+                  },
+                  {
+                      "enum": [
+                          "KEEP",
+                          "REMOVE"
+                      ],
+                      "type": "string",
+                      "default": "KEEP",
+                      "description": "Fill with KEEP or REMOVE (if the document is already digitally signed)",
+                      "name": "overwrite",
+                      "in": "formData"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with document password (if the document is protected by password)",
+                      "name": "password",
+                      "in": "formData"
+                  }
+              ],
+              "responses": {
+                  "201": {
+                      "description": "Created",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.SuccessOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "$ref": "#/definitions/UploadShareDocumentResponse"
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "403": {
+                      "description": "Forbidden",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "404": {
+                      "description": "Not Found",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "422": {
+                      "description": "Unprocessable Entity",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.ErrorOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "type": "array",
+                                          "items": {
+                                              "$ref": "#/definitions/response.ErrorOutputData"
+                                          }
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  }
+              }
+          }
+      },
+      "/external/documents/{id}/download/audit-trail": {
+          "get": {
+              "security": [
+                  {
+                      "BasicAuth": []
+                  }
+              ],
+              "description": "Download document audit trail.",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "application/octet-stream"
+              ],
+              "tags": [
+                  "Documents API"
+              ],
+              "summary": "Uses to download document audit trail",
+              "parameters": [
+                  {
+                      "enum": [
+                          "en",
+                          "id"
+                      ],
+                      "type": "string",
+                      "default": "id",
+                      "description": "Fill with language code",
+                      "name": "Accept-Language",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with request id",
+                      "name": "Set-Request-Id",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with merchant key",
+                      "name": "Application-Key",
+                      "in": "header",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "format": "uuid",
+                      "description": "Fill with document id",
+                      "name": "id",
+                      "in": "path",
+                      "required": true
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.SuccessOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "$ref": "#/definitions/ViewDocumentResponse"
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "403": {
+                      "description": "Forbidden",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "404": {
+                      "description": "Not Found",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "422": {
+                      "description": "Unprocessable Entity",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.ErrorOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "type": "array",
+                                          "items": {
+                                              "$ref": "#/definitions/response.ErrorOutputData"
+                                          }
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  }
+              }
+          }
+      },
+      "/external/documents/{id}/download/original": {
+          "get": {
+              "security": [
+                  {
+                      "BasicAuth": []
+                  }
+              ],
+              "description": "Download original document.",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "application/octet-stream"
+              ],
+              "tags": [
+                  "Documents API"
+              ],
+              "summary": "Uses to download original document",
+              "parameters": [
+                  {
+                      "enum": [
+                          "en",
+                          "id"
+                      ],
+                      "type": "string",
+                      "default": "id",
+                      "description": "Fill with language code",
+                      "name": "Accept-Language",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with request id",
+                      "name": "Set-Request-Id",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with merchant key",
+                      "name": "Application-Key",
+                      "in": "header",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "format": "uuid",
+                      "description": "Fill with document id",
+                      "name": "id",
+                      "in": "path",
+                      "required": true
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.SuccessOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "$ref": "#/definitions/ViewDocumentResponse"
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "403": {
+                      "description": "Forbidden",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "404": {
+                      "description": "Not Found",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "422": {
+                      "description": "Unprocessable Entity",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.ErrorOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "type": "array",
+                                          "items": {
+                                              "$ref": "#/definitions/response.ErrorOutputData"
+                                          }
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  }
+              }
+          }
+      },
+      "/external/documents/{id}/download/signed": {
+          "get": {
+              "security": [
+                  {
+                      "BasicAuth": []
+                  }
+              ],
+              "description": "Download signed document.",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "application/octet-stream"
+              ],
+              "tags": [
+                  "Documents API"
+              ],
+              "summary": "Uses to download signed document",
+              "parameters": [
+                  {
+                      "enum": [
+                          "en",
+                          "id"
+                      ],
+                      "type": "string",
+                      "default": "id",
+                      "description": "Fill with language code",
+                      "name": "Accept-Language",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with request id",
+                      "name": "Set-Request-Id",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with merchant key",
+                      "name": "Application-Key",
+                      "in": "header",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "format": "uuid",
+                      "description": "Fill with document id",
+                      "name": "id",
+                      "in": "path",
+                      "required": true
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.SuccessOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "$ref": "#/definitions/ViewDocumentResponse"
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "403": {
+                      "description": "Forbidden",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "404": {
+                      "description": "Not Found",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "422": {
+                      "description": "Unprocessable Entity",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.ErrorOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "type": "array",
+                                          "items": {
+                                              "$ref": "#/definitions/response.ErrorOutputData"
+                                          }
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  }
+              }
+          }
+      },
+      "/external/documents/{id}/histories": {
+          "get": {
+              "security": [
+                  {
+                      "BasicAuth": []
+                  }
+              ],
+              "description": "Histories of document.",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "application/json"
+              ],
+              "tags": [
+                  "Documents API"
+              ],
+              "summary": "Uses to fetch document histories",
+              "parameters": [
+                  {
+                      "enum": [
+                          "en",
+                          "id"
+                      ],
+                      "type": "string",
+                      "default": "id",
+                      "description": "Fill with language code",
+                      "name": "Accept-Language",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with request id",
+                      "name": "Set-Request-Id",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with merchant key",
+                      "name": "Application-Key",
+                      "in": "header",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "format": "uuid",
+                      "description": "Fill with document id",
+                      "name": "id",
+                      "in": "path",
+                      "required": true
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.SuccessOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "$ref": "#/definitions/ListHistoryResponse"
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "403": {
+                      "description": "Forbidden",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "404": {
+                      "description": "Not Found",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "422": {
+                      "description": "Unprocessable Entity",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.ErrorOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "type": "array",
+                                          "items": {
+                                              "$ref": "#/definitions/response.ErrorOutputData"
+                                          }
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  }
+              }
+          }
+      },
+      "/external/documents/{id}/permissions": {
+          "get": {
+              "security": [
+                  {
+                      "BasicAuth": []
+                  }
+              ],
+              "description": "Permissions document.",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "application/json"
+              ],
+              "tags": [
+                  "Documents API"
+              ],
+              "summary": "Uses to get document permissions",
+              "parameters": [
+                  {
+                      "enum": [
+                          "en",
+                          "id"
+                      ],
+                      "type": "string",
+                      "default": "id",
+                      "description": "Fill with language code",
+                      "name": "Accept-Language",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with request id",
+                      "name": "Set-Request-Id",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with merchant key",
+                      "name": "Application-Key",
+                      "in": "header",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with document id",
+                      "name": "id",
+                      "in": "path",
+                      "required": true
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.SuccessOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "$ref": "#/definitions/StatusDocumentResponse"
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "403": {
+                      "description": "Forbidden",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "404": {
+                      "description": "Not Found",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "422": {
+                      "description": "Unprocessable Entity",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.ErrorOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "type": "array",
+                                          "items": {
+                                              "$ref": "#/definitions/response.ErrorOutputData"
+                                          }
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  }
+              }
+          }
+      },
+      "/external/documents/{id}/properties": {
+          "get": {
+              "security": [
+                  {
+                      "BasicAuth": []
+                  }
+              ],
+              "description": "Properties document.",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "application/json"
+              ],
+              "tags": [
+                  "Documents API"
+              ],
+              "summary": "Uses to get document properties",
+              "parameters": [
+                  {
+                      "enum": [
+                          "en",
+                          "id"
+                      ],
+                      "type": "string",
+                      "default": "id",
+                      "description": "Fill with language code",
+                      "name": "Accept-Language",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with request id",
+                      "name": "Set-Request-Id",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with merchant key",
+                      "name": "Application-Key",
+                      "in": "header",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with document id",
+                      "name": "id",
+                      "in": "path",
+                      "required": true
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.SuccessOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "$ref": "#/definitions/StatusDocumentResponse"
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "403": {
+                      "description": "Forbidden",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "404": {
+                      "description": "Not Found",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "422": {
+                      "description": "Unprocessable Entity",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.ErrorOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "type": "array",
+                                          "items": {
+                                              "$ref": "#/definitions/response.ErrorOutputData"
+                                          }
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  }
+              }
+          }
+      },
+      "/external/documents/{id}/share": {
+          "put": {
+              "security": [
+                  {
+                      "BasicAuth": []
+                  }
+              ],
+              "description": "Share document.",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "application/json"
+              ],
+              "tags": [
+                  "Documents API"
+              ],
+              "summary": "Uses to share document",
+              "parameters": [
+                  {
+                      "enum": [
+                          "en",
+                          "id"
+                      ],
+                      "type": "string",
+                      "default": "id",
+                      "description": "Fill with language code",
+                      "name": "Accept-Language",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with request id",
+                      "name": "Set-Request-Id",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with merchant key",
+                      "name": "Application-Key",
+                      "in": "header",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "format": "uuid",
+                      "description": "Fill with document id",
+                      "name": "id",
+                      "in": "path",
+                      "required": true
+                  },
+                  {
+                      "description": "Fill with document participants",
+                      "name": "participants",
+                      "in": "body",
+                      "required": true,
+                      "schema": {
+                          "description": "holds the list of participant of document",
+                          "type": "array",
+                          "items": {
+                              "$ref": "#/definitions/Participant"
+                          }
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.SuccessOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "$ref": "#/definitions/ShareDocumentResponse"
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "403": {
+                      "description": "Forbidden",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "404": {
+                      "description": "Not Found",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "422": {
+                      "description": "Unprocessable Entity",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.ErrorOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "type": "array",
+                                          "items": {
+                                              "$ref": "#/definitions/response.ErrorOutputData"
+                                          }
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  }
+              }
+          }
+      },
+      "/external/documents/{id}/status": {
+          "get": {
+              "security": [
+                  {
+                      "BasicAuth": []
+                  }
+              ],
+              "description": "Status document.",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "application/json"
+              ],
+              "tags": [
+                  "Documents API"
+              ],
+              "summary": "Uses to get document status",
+              "parameters": [
+                  {
+                      "enum": [
+                          "en",
+                          "id"
+                      ],
+                      "type": "string",
+                      "default": "id",
+                      "description": "Fill with language code",
+                      "name": "Accept-Language",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with request id",
+                      "name": "Set-Request-Id",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with merchant key",
+                      "name": "Application-Key",
+                      "in": "header",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with document id",
+                      "name": "id",
+                      "in": "path",
+                      "required": true
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.SuccessOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "$ref": "#/definitions/StatusDocumentResponse"
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "403": {
+                      "description": "Forbidden",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "404": {
+                      "description": "Not Found",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "422": {
+                      "description": "Unprocessable Entity",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.ErrorOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "type": "array",
+                                          "items": {
+                                              "$ref": "#/definitions/response.ErrorOutputData"
+                                          }
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  }
+              }
+          }
+      },
+      "/external/documents/{id}/thumbnail": {
+          "get": {
+              "security": [
+                  {
+                      "BasicAuth": []
+                  }
+              ],
+              "description": "Thumbnail document.",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "application/json"
+              ],
+              "tags": [
+                  "Documents API"
+              ],
+              "summary": "Uses to get document thumbnail",
+              "parameters": [
+                  {
+                      "enum": [
+                          "en",
+                          "id"
+                      ],
+                      "type": "string",
+                      "default": "id",
+                      "description": "Fill with language code",
+                      "name": "Accept-Language",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with request id",
+                      "name": "Set-Request-Id",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with merchant key",
+                      "name": "Application-Key",
+                      "in": "header",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with document id",
+                      "name": "id",
+                      "in": "path",
+                      "required": true
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.SuccessOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "$ref": "#/definitions/ThumbnailDocumentResponse"
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "403": {
+                      "description": "Forbidden",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "404": {
+                      "description": "Not Found",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "422": {
+                      "description": "Unprocessable Entity",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.ErrorOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "type": "array",
+                                          "items": {
+                                              "$ref": "#/definitions/response.ErrorOutputData"
+                                          }
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  }
+              }
+          }
+      },
+      "/external/documents/{id}/view": {
+          "get": {
+              "security": [
+                  {
+                      "BasicAuth": []
+                  }
+              ],
+              "description": "View document.",
+              "consumes": [
+                  "application/json"
+              ],
+              "produces": [
+                  "application/json"
+              ],
+              "tags": [
+                  "Documents API"
+              ],
+              "summary": "Uses to view document",
+              "parameters": [
+                  {
+                      "enum": [
+                          "en",
+                          "id"
+                      ],
+                      "type": "string",
+                      "default": "id",
+                      "description": "Fill with language code",
+                      "name": "Accept-Language",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with request id",
+                      "name": "Set-Request-Id",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with merchant key",
+                      "name": "Application-Key",
+                      "in": "header",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "format": "uuid",
+                      "description": "Fill with document id",
+                      "name": "id",
+                      "in": "path",
+                      "required": true
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.SuccessOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "$ref": "#/definitions/ViewDocumentResponse"
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "403": {
+                      "description": "Forbidden",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "404": {
+                      "description": "Not Found",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "422": {
+                      "description": "Unprocessable Entity",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.ErrorOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "type": "array",
+                                          "items": {
+                                              "$ref": "#/definitions/response.ErrorOutputData"
+                                          }
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  }
+              }
+          }
+      },
+      "/external/documents/{id}/void": {
+          "patch": {
+              "security": [
+                  {
+                      "BasicAuth": []
+                  }
+              ],
+              "description": "Void document.",
+              "consumes": [
+                  "multipart/form-data"
+              ],
+              "produces": [
+                  "application/json"
+              ],
+              "tags": [
+                  "Documents API"
+              ],
+              "summary": "Uses to void document",
+              "parameters": [
+                  {
+                      "enum": [
+                          "en",
+                          "id"
+                      ],
+                      "type": "string",
+                      "default": "id",
+                      "description": "Fill with language code",
+                      "name": "Accept-Language",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with request id",
+                      "name": "Set-Request-Id",
+                      "in": "header"
+                  },
+                  {
+                      "type": "string",
+                      "description": "Fill with merchant key",
+                      "name": "Application-Key",
+                      "in": "header",
+                      "required": true
+                  },
+                  {
+                      "type": "string",
+                      "format": "uuid",
+                      "description": "Fill with document id",
+                      "name": "id",
+                      "in": "path",
+                      "required": true
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.SuccessOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "$ref": "#/definitions/VoidDocumentResponse"
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "403": {
+                      "description": "Forbidden",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "404": {
+                      "description": "Not Found",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  },
+                  "422": {
+                      "description": "Unprocessable Entity",
+                      "schema": {
+                          "allOf": [
+                              {
+                                  "$ref": "#/definitions/response.ErrorOutput"
+                              },
+                              {
+                                  "type": "object",
+                                  "properties": {
+                                      "data": {
+                                          "type": "array",
+                                          "items": {
+                                              "$ref": "#/definitions/response.ErrorOutputData"
+                                          }
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  "500": {
+                      "description": "Internal Server Error",
+                      "schema": {
+                          "$ref": "#/definitions/response.ErrorOutput"
+                      }
+                  }
+              }
+          }
+      }
+  },
+  "definitions": {
+      "Category": {
+          "type": "object",
+          "properties": {
+              "id": {
+                  "description": "id define category id.\n- If category id is defined when uploading the document, it should return valid document category id.\n- If category id is not defined, it will return uncategorized.",
+                  "type": "string",
+                  "example": "a1e74853-ae31-498b-93d3-42a4c5783041"
+              },
+              "name": {
+                  "description": "name define category name.\n- If category id is defined when uploading the document, it should return valid document category name.\n- If category id is not defined, it will return Uncategorized.",
+                  "type": "string",
+                  "example": "Invoice"
+              }
+          }
+      },
+      "Info.Presenter": {
+          "type": "object",
+          "properties": {
+              "metadata": {
+                  "$ref": "#/definitions/Metadata"
+              },
+              "owner": {
+                  "$ref": "#/definitions/Owner"
+              },
+              "participant": {
+                  "$ref": "#/definitions/docpresenter.Participant"
+              },
+              "security": {
+                  "$ref": "#/definitions/Security"
+              },
+              "signature": {
+                  "$ref": "#/definitions/Signature"
+              },
+              "status": {
+                  "$ref": "#/definitions/Status"
+              }
+          }
+      },
+      "ListDocumentResponse": {
+          "type": "object",
+          "properties": {
+              "data": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/list.Info"
+                  }
+              },
+              "meta": {
+                  "$ref": "#/definitions/list.Meta"
+              }
+          }
+      },
+      "ListHistoryResponse": {
+          "type": "object",
+          "properties": {
+              "data": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/history.History"
+                  }
+              },
+              "meta": {
+                  "$ref": "#/definitions/history.Meta"
+              }
+          }
+      },
+      "Metadata": {
+          "type": "object",
+          "properties": {
+              "category": {
+                  "description": "category holds document category information.",
+                  "$ref": "#/definitions/Category"
+              },
+              "description": {
+                  "description": "description holds the document description",
+                  "type": "string",
+                  "example": "Need your sign immediately :)"
+              },
+              "id": {
+                  "description": "id holds the document id",
+                  "type": "string",
+                  "example": "9ec552bb-fa31-4b06-ae17-98d0f0bd527e"
+              },
+              "title": {
+                  "description": "title holds the document title",
+                  "type": "string",
+                  "example": "Project Contract"
+              },
+              "token": {
+                  "description": "token holds the document token",
+                  "type": "string",
+                  "example": "dad8ac5ca9813b9d99d28b43bbf46602"
+              },
+              "uploaded_at": {
+                  "description": "uploaded_at holds the document uploading time",
+                  "type": "string",
+                  "example": "2022-03-24T15:03:39+07:00"
+              },
+              "url": {
+                  "description": "url holds the document url, expires in 15 minutes",
+                  "type": "string",
+                  "example": "https://app.privy.id/document/9ec552bb-fa31-4b06-ae17-98d0f0bd527e"
+              },
+              "workflow": {
+                  "description": "workflow holds the document workflow\n* SELF_SIGN\n* SELF_SEAL\n* SELF_STAMP\n* STAMP_SIGN\n* SIGN_SEAL\n* STAMP_SIGN_SEAL\n* SHARE_ONLY\n* SIGN_SHARE\n* STAMP_SIGN_SHARE\n* SIGN_SEAL_SHARE\n* STAMP_SIGN_SEAL_SHARE",
+                  "type": "string",
+                  "example": "SHARE_ONLY"
+              }
+          }
+      },
+      "Owner": {
+          "description": "holds the document owner information including his position on behalf enterprise when",
+          "type": "object",
+          "properties": {
+              "enterprise_id": {
+                  "description": "enterprise_id holds the enterprise id",
+                  "type": "string",
+                  "example": "6e6b5743-5483-465c-9bc3-c21f40193579"
+              },
+              "enterprise_name": {
+                  "description": "enterprise_name holds the name of enterprise",
+                  "type": "string",
+                  "example": "PT. Privy Identitas Digital"
+              },
+              "position_id": {
+                  "description": "position_id holds the position id related to owner position on behalf the enterprise\n\t// when the document is uploaded.",
+                  "type": "string",
+                  "example": "44e8d835-7811-43ba-b45e-896cedf6b4dc"
+              },
+              "position_name": {
+                  "description": "position_name holds the name of position related to owner position on behalf the enterprise\nwhen the document is uploaded.",
+                  "type": "string",
+                  "example": "Backend Engineer"
+              },
+              "user_id": {
+                  "description": "user_id holds the user id",
+                  "type": "string",
+                  "example": "23022199-9c45-4332-8ea6-b587877916f0"
+              },
+              "user_identifier": {
+                  "description": "user_id holds the user identifier\n* privy_id - for registered user\n* email - for un-registered user\n* phone - for un-registered user",
+                  "type": "string",
+                  "example": "UAT001"
+              },
+              "user_name": {
+                  "description": "user_name holds the name of user",
+                  "type": "string",
+                  "example": "John Doe"
+              }
+          }
+      },
+      "OwnerIdentifier": {
+          "description": "holds the document owner information",
+          "type": "object",
+          "properties": {
+              "user_identifier": {
+                  "description": "user_identifier define document owner identifier.\n- If the owner is an existing user, use privyID.\n- If the owner is not registered yet, use their email or phone.",
+                  "type": "string",
+                  "example": "UAT001"
+              }
+          }
+      },
+      "Participant": {
+          "description": "holds the document participant information",
+          "type": "object",
+          "properties": {
+              "enterprise_identifier": {
+                  "description": "enterprise_identifier define enterprise association belongs to document participant.\n- This field is optional, can be filled with enterprise ID or enterprise token.\n- If the current field is filled with enterprise ID or enterprise token,\n  our system will perform validation to ensure that document owner is associated to the\n  selected enterprise.\n- If the document participant already associated with the selected enterprise, this document\n  marked as enterprise document (document ownership on behalf enterprise)",
+                  "type": "string",
+                  "example": "91005c59-4ea4-4647-adde-98cac416615e"
+              },
+              "one_of": {
+                  "description": "one_of is a flag to determine that participant is in one of mode. OneOf required two or more\nparticipant with same position on behalf enterprise.",
+                  "type": "boolean",
+                  "example": true
+              },
+              "signature_placements": {
+                  "description": "signature_placements define where the participant will sign the document inside the document.\nIt shows how many signature need to be placed by the participant.\n- Signature placement can more than one per document.\n- Maximum placement is twenty placements.",
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/SignaturePlacement"
+                  }
+              },
+              "signature_properties": {
+                  "description": "signature_properties define custom signature header and description inside the signature field.",
+                  "$ref": "#/definitions/SignatureProperties"
+              },
+              "type": {
+                  "description": "type define role of participant.\n- VIEWER\n- REVIEWER\n- APPROVER\n- STAMPER\n- SEALER\n- SEALER",
+                  "type": "string",
+                  "example": "SIGNER"
+              },
+              "user_identifier": {
+                  "description": "user_identifier define document participant identifier.\n- If the participant is an existing user, use privyID.\n- If the participant is not registered yet, use their email or phone.",
+                  "type": "string",
+                  "example": "UAT001"
+              }
+          }
+      },
+      "QRCodeSpecification": {
+          "description": "holds the qrcode placement information",
+          "type": "object",
+          "properties": {
+              "offset_x": {
+                  "description": "offset_x define the offset position based on the selected position.",
+                  "type": "integer",
+                  "default": 30,
+                  "example": 30
+              },
+              "offset_y": {
+                  "description": "offset_y define the offset position based on the selected position.",
+                  "type": "integer",
+                  "default": 30,
+                  "example": 30
+              },
+              "page": {
+                  "description": "page_number define the document page for the qr code placement inside the document.\nThe default page is last page of the document.\n* 1...n page for set the selected page.\n* 0 for set the qr code in the last page.",
+                  "type": "integer",
+                  "default": 0,
+                  "example": 0
+              },
+              "position": {
+                  "description": "position define the placement of the qr code position inside the document.\n* top-left\n* top-right\n* bottom-right\n* bottom-left",
+                  "type": "string",
+                  "default": "bottom-right",
+                  "example": "bottom-right"
+              }
+          }
+      },
+      "Role": {
+          "type": "object",
+          "properties": {
+              "as": {
+                  "description": "as represent the role of participant.\n* VIEWER\n* REVIEWER\n* APPROVER\n* STAMPER\n* SIGNER\n* SEALER",
+                  "type": "string",
+                  "example": "SIGNER"
+              },
+              "at": {
+                  "description": "at represent the time of the action was taken by the current participant.",
+                  "type": "string",
+                  "example": "2022-03-24T15:03:39+07:00"
+              },
+              "done": {
+                  "description": "done represent state of the current participant already take an action based on his role or not yet.",
+                  "type": "boolean",
+                  "example": true
+              }
+          }
+      },
+      "Security": {
+          "type": "object",
+          "properties": {
+              "encrypted": {
+                  "description": "encrypted represent the current document is encrypted.",
+                  "type": "boolean",
+                  "example": true
+              },
+              "encryption": {
+                  "description": "encryption represent the current document encryption.",
+                  "type": "string",
+                  "example": "AES 256-bit"
+              },
+              "need_password": {
+                  "description": "need_password represent the document will need password or not when take these action bellow:\n* view\n* approve\n* stamp\n* sign\n* seal",
+                  "type": "boolean",
+                  "example": true
+              }
+          }
+      },
+      "ShareDocumentResponse": {
+          "type": "object",
+          "properties": {
+              "metadata": {
+                  "$ref": "#/definitions/Metadata"
+              },
+              "owner": {
+                  "$ref": "#/definitions/Owner"
+              },
+              "participant": {
+                  "$ref": "#/definitions/docpresenter.Participant"
+              },
+              "security": {
+                  "$ref": "#/definitions/Security"
+              },
+              "status": {
+                  "$ref": "#/definitions/Status"
+              }
+          }
+      },
+      "Signature": {
+          "type": "object",
+          "properties": {
+              "previous": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/SignatureInfo"
+                  }
+              }
+          }
+      },
+      "SignatureInfo": {
+          "type": "object",
+          "properties": {
+              "field": {
+                  "type": "string"
+              },
+              "issuer": {
+                  "type": "string"
+              },
+              "location": {
+                  "type": "string"
+              },
+              "name": {
+                  "type": "string"
+              },
+              "reason": {
+                  "type": "string"
+              },
+              "signedAt": {
+                  "type": "string"
+              },
+              "visible": {
+                  "type": "boolean"
+              }
+          }
+      },
+      "SignaturePlacement": {
+          "description": "holds the signature placement information",
+          "type": "object",
+          "properties": {
+              "draggable": {
+                  "description": "draggable defines the participant can move pre-defined signature placement or not.\n* true - fixed signature placement\n* false - can adjust by moving the placement",
+                  "type": "boolean",
+                  "example": false
+              },
+              "height": {
+                  "description": "height defines the signature height.",
+                  "type": "number",
+                  "example": 106
+              },
+              "page_number": {
+                  "description": "page_number defines the position signature placement inside the document.",
+                  "type": "integer",
+                  "example": 1
+              },
+              "pos_x": {
+                  "description": "pos_x defines the signature placement x coordinates calculated from top-left of page.",
+                  "type": "number",
+                  "example": 200
+              },
+              "pos_y": {
+                  "description": "pos_y defines the signature placement y coordinates calculated from top-left of page.",
+                  "type": "number",
+                  "example": 500
+              },
+              "width": {
+                  "description": "width defines the signature with.",
+                  "type": "number",
+                  "example": 198
+              }
+          }
+      },
+      "SignatureProperties": {
+          "description": "holds custom signature properties information",
+          "type": "object",
+          "properties": {
+              "description": {
+                  "description": "description defines custom signature description on the signature field.",
+                  "type": "string",
+                  "example": "On behalf Carstensz Team"
+              },
+              "header": {
+                  "description": "header defines custom signature header on the signature field.",
+                  "type": "string",
+                  "example": "Signed by UAT001"
+              }
+          }
+      },
+      "State": {
+          "type": "object",
+          "properties": {
+              "completed": {
+                  "description": "completed represent the current document is completed.",
+                  "type": "boolean",
+                  "example": true
+              },
+              "draft": {
+                  "description": "draft represent the current document is in draft state.",
+                  "type": "boolean",
+                  "example": false
+              },
+              "expired": {
+                  "description": "expired represent the current document is already expired.",
+                  "type": "boolean",
+                  "example": false
+              },
+              "in_progress": {
+                  "description": "in_progress represent the current document is in progress state.",
+                  "type": "boolean",
+                  "example": true
+              },
+              "rejected": {
+                  "description": "rejected represent the current document has been rejected by one of participants.",
+                  "type": "boolean",
+                  "example": false
+              },
+              "shared": {
+                  "description": "share represent the current document is already shared.",
+                  "type": "boolean",
+                  "example": true
+              },
+              "voided": {
+                  "description": "voided represent the current document is already voided before.",
+                  "type": "boolean",
+                  "example": false
+              }
+          }
+      },
+      "Status": {
+          "type": "object",
+          "properties": {
+              "description": {
+                  "description": "description holds the document status description.\n* draft\n* in_progress\n* rejected\n* expired\n* completed\n* waiting your sign\n* waiting {user_identifier} to {review/sign/approve/seal}",
+                  "type": "string",
+                  "example": "in progress"
+              },
+              "state": {
+                  "$ref": "#/definitions/State"
+              }
+          }
+      },
+      "StatusDocumentResponse": {
+          "type": "object",
+          "properties": {
+              "description": {
+                  "type": "string"
+              },
+              "status": {
+                  "$ref": "#/definitions/State"
+              }
+          }
+      },
+      "ThumbnailDocumentResponse": {
+          "type": "object",
+          "properties": {
+              "url": {
+                  "type": "string"
+              }
+          }
+      },
+      "UploadDocumentResponse": {
+          "type": "object",
+          "properties": {
+              "metadata": {
+                  "$ref": "#/definitions/Metadata"
+              },
+              "owner": {
+                  "$ref": "#/definitions/Owner"
+              },
+              "participant": {
+                  "$ref": "#/definitions/docpresenter.Participant"
+              },
+              "security": {
+                  "$ref": "#/definitions/Security"
+              },
+              "status": {
+                  "$ref": "#/definitions/Status"
+              }
+          }
+      },
+      "UploadShareDocumentResponse": {
+          "type": "object",
+          "properties": {
+              "metadata": {
+                  "$ref": "#/definitions/Metadata"
+              },
+              "owner": {
+                  "$ref": "#/definitions/Owner"
+              },
+              "participant": {
+                  "$ref": "#/definitions/docpresenter.Participant"
+              },
+              "security": {
+                  "$ref": "#/definitions/Security"
+              },
+              "status": {
+                  "$ref": "#/definitions/Status"
+              }
+          }
+      },
+      "ViewDocumentResponse": {
+          "type": "object",
+          "properties": {
+              "metadata": {
+                  "$ref": "#/definitions/Metadata"
+              },
+              "owner": {
+                  "$ref": "#/definitions/Owner"
+              },
+              "participant": {
+                  "$ref": "#/definitions/docpresenter.Participant"
+              },
+              "security": {
+                  "$ref": "#/definitions/Security"
+              },
+              "status": {
+                  "$ref": "#/definitions/Status"
+              }
+          }
+      },
+      "VoidDocumentResponse": {
+          "type": "object",
+          "properties": {
+              "metadata": {
+                  "$ref": "#/definitions/Metadata"
+              },
+              "owner": {
+                  "$ref": "#/definitions/Owner"
+              },
+              "participant": {
+                  "$ref": "#/definitions/docpresenter.Participant"
+              },
+              "security": {
+                  "$ref": "#/definitions/Security"
+              },
+              "status": {
+                  "$ref": "#/definitions/Status"
+              }
+          }
+      },
+      "WatermarkSpecification": {
+          "description": "holds the watermark placement information",
+          "type": "object",
+          "properties": {
+              "text_description": {
+                  "type": "string",
+                  "example": "Powered by PrivyID"
+              },
+              "text_header": {
+                  "type": "string",
+                  "example": "This document was uploaded by Carstensz"
+              }
+          }
+      },
+      "docpresenter.Participant": {
+          "type": "object",
+          "properties": {
+              "list": {
+                  "description": "list holds the list of document participant.",
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/docpresenter.ParticipantData"
+                  }
+              },
+              "sequence": {
+                  "description": "sequence holds the rule for document participants to take an action to the document.\n* PARALLEL - when the participant receive document, he can take an action (sign/approve/seal) immediately.\n* SERIAL - when the participant receive document, he only can take an action when his turn is come based on the participants order.\n* COMBINED - a grouped participants into PARALLEL group and SERIAL GROUP.\nFor an example, when the Document has three sequential groups:\ngroup one is Serial:\n\t- UAT001 - Reviewer\ngroup two is Parallel:\n\t- UAT002 - Signer\n\t- UAT003 - Signer\n\t- UAT004 - Signer\ngroup one is Serial:\n\t- UAT005 - Sealer\nSo, the Document at the firstly, need to be reviewed by the UAT001. Then can be signed freely by UAT002, UAT003, and\nUAT005 without waiting each other from the inside the group. Finally, it can be sealed by UAT005.",
+                  "type": "string",
+                  "example": "PARALLEL"
+              }
+          }
+      },
+      "docpresenter.ParticipantData": {
+          "type": "object",
+          "properties": {
+              "enterprise_id": {
+                  "description": "enterprise_id holds the enterprise id",
+                  "type": "string",
+                  "example": "6e6b5743-5483-465c-9bc3-c21f40193579"
+              },
+              "enterprise_name": {
+                  "description": "enterprise_name holds the name of enterprise",
+                  "type": "string",
+                  "example": "PT. Privy Identitas Digital"
+              },
+              "placements": {
+                  "description": "signature placeholder holds the participant signature placements.",
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/docpresenter.SignaturePlacement"
+                  }
+              },
+              "position_id": {
+                  "description": "position_id holds the position id related to owner position on behalf the enterprise\n\t// when the document is uploaded.",
+                  "type": "string",
+                  "example": "44e8d835-7811-43ba-b45e-896cedf6b4dc"
+              },
+              "position_name": {
+                  "description": "position_name holds the name of position related to owner position on behalf the enterprise\nwhen the document is uploaded.",
+                  "type": "string",
+                  "example": "Backend Engineer"
+              },
+              "role": {
+                  "description": "role holds the participant role related to the current document.",
+                  "$ref": "#/definitions/Role"
+              },
+              "user_id": {
+                  "description": "user_id holds the user id",
+                  "type": "string",
+                  "example": "23022199-9c45-4332-8ea6-b587877916f0"
+              },
+              "user_identifier": {
+                  "description": "user_id holds the user identifier\n* privy_id - for registered user\n* email - for un-registered user\n* phone - for un-registered user",
+                  "type": "string",
+                  "example": "UAT001"
+              },
+              "user_name": {
+                  "description": "user_name holds the name of user",
+                  "type": "string",
+                  "example": "John Doe"
+              }
+          }
+      },
+      "docpresenter.SignaturePlacement": {
+          "type": "object",
+          "properties": {
+              "description": {
+                  "type": "string"
+              },
+              "draggable": {
+                  "type": "boolean"
+              },
+              "header": {
+                  "type": "string"
+              },
+              "height": {
+                  "type": "number"
+              },
+              "page_number": {
+                  "type": "integer"
+              },
+              "pos_x": {
+                  "type": "number"
+              },
+              "pos_y": {
+                  "type": "number"
+              },
+              "width": {
+                  "type": "number"
+              }
+          }
+      },
+      "history.Actor": {
+          "type": "object",
+          "properties": {
+              "enterprise_name": {
+                  "type": "string"
+              },
+              "id": {
+                  "type": "string"
+              },
+              "name": {
+                  "type": "string"
+              },
+              "position_name": {
+                  "type": "string"
+              },
+              "privy_id": {
+                  "type": "string"
+              }
+          }
+      },
+      "history.History": {
+          "type": "object",
+          "properties": {
+              "activity": {
+                  "type": "string"
+              },
+              "actor": {
+                  "$ref": "#/definitions/history.Actor"
+              },
+              "created_at": {
+                  "type": "string"
+              },
+              "id": {
+                  "type": "string"
+              },
+              "user_agent": {
+                  "type": "string"
+              }
+          }
+      },
+      "history.Meta": {
+          "type": "object",
+          "properties": {
+              "page": {
+                  "type": "integer"
+              },
+              "per_page": {
+                  "type": "integer"
+              },
+              "total": {
+                  "type": "integer"
+              }
+          }
+      },
+      "list.Info": {
+          "type": "object",
+          "properties": {
+              "metadata": {
+                  "$ref": "#/definitions/Metadata"
+              },
+              "owner": {
+                  "$ref": "#/definitions/Owner"
+              },
+              "participant": {
+                  "$ref": "#/definitions/docpresenter.Participant"
+              },
+              "security": {
+                  "$ref": "#/definitions/Security"
+              },
+              "status": {
+                  "$ref": "#/definitions/Status"
+              }
+          }
+      },
+      "list.Meta": {
+          "type": "object",
+          "properties": {
+              "page": {
+                  "type": "integer"
+              },
+              "per_page": {
+                  "type": "integer"
+              },
+              "total": {
+                  "type": "integer"
+              }
+          }
+      },
+      "response.ErrorOutput": {
+          "type": "object",
+          "properties": {
+              "app_name": {
+                  "type": "string"
+              },
+              "code": {
+                  "type": "integer"
+              },
+              "data": {
+                  "type": "array",
+                  "items": {
+                      "$ref": "#/definitions/response.ErrorOutputData"
+                  }
+              },
+              "error_code": {
+                  "type": "string"
+              },
+              "message": {
+                  "type": "string"
+              }
+          }
+      },
+      "response.ErrorOutputData": {
+          "type": "object",
+          "properties": {
+              "description": {
+                  "type": "string"
+              },
+              "field": {
+                  "type": "string"
+              }
+          }
+      },
+      "response.SuccessOutput": {
+          "type": "object",
+          "properties": {
+              "code": {
+                  "type": "integer",
+                  "example": 200
+              },
+              "data": {},
+              "message": {
+                  "type": "string",
+                  "example": "OK"
+              },
+              "meta": {}
+          }
+      }
+  },
+  "securityDefinitions": {
+      "BasicAuth": {
+          "type": "basic"
+      }
+  }
+}
