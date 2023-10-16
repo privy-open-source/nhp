@@ -6038,35 +6038,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"h3@npm:^1.6.0, h3@npm:^1.7.1":
-  version: 1.8.0
-  resolution: "h3@npm:1.8.0"
+"h3@npm:^1.6.0, h3@npm:^1.7.1, h3@npm:^1.8.1":
+  version: 1.8.2
+  resolution: "h3@npm:1.8.2"
   dependencies:
     cookie-es: ^1.0.0
     defu: ^6.1.2
     destr: ^2.0.1
-    iron-webcrypto: ^0.8.0
-    radix3: ^1.0.1
-    ufo: ^1.2.0
-    uncrypto: ^0.1.3
-    unenv: ^1.7.1
-  checksum: 3d79c1ff5a5f2fd32a8f4f07ad3eed4835710c0d6492df14272264c17aaf884cd56244297b39f5435fe55a0a13338fcf635156ca86ea56c4765ceefda0a42240
-  languageName: node
-  linkType: hard
-
-"h3@npm:^1.8.1":
-  version: 1.8.1
-  resolution: "h3@npm:1.8.1"
-  dependencies:
-    cookie-es: ^1.0.0
-    defu: ^6.1.2
-    destr: ^2.0.1
-    iron-webcrypto: ^0.8.0
+    iron-webcrypto: ^0.10.1
     radix3: ^1.1.0
     ufo: ^1.3.0
     uncrypto: ^0.1.3
     unenv: ^1.7.4
-  checksum: a25e37a880455c30429d35bdfdcb8b2164605f74116d2e1e4b4c6ffa27e2c18d8ebbc810dcfd9a3533dbda6e23484edc68e14a2395753b3ec70125c008a78efe
+  checksum: 9e57860d54b17d48439242992b9cc5b7f2cf220c2a9d22cabec8ef3e17a5bfef1ffa9bf681891dbcabbef40a35143965908cb01eb51b760705b3dfbae9366abf
   languageName: node
   linkType: hard
 
@@ -6430,10 +6414,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iron-webcrypto@npm:^0.8.0":
-  version: 0.8.0
-  resolution: "iron-webcrypto@npm:0.8.0"
-  checksum: 5760b6676ec85a71b7d07541efceb101514f5fc2abeee58f4ecc704ae47c55638a924beadac541730877fe9abc9ec97a8be7deea93e6577907d29dc41342592c
+"iron-webcrypto@npm:^0.10.1":
+  version: 0.10.1
+  resolution: "iron-webcrypto@npm:0.10.1"
+  checksum: a473820d5ab5cb1dfbf00ee06f9b3a48b99fb2bb3058485ab13b153e7cd71dd63af74e6df6a5a4fb6b09d6041d049583913e4c6fff3bd5301087472ea78372ce
   languageName: node
   linkType: hard
 
@@ -9140,13 +9124,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"radix3@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "radix3@npm:1.0.1"
-  checksum: 042e11588464ca444a663f78c2aad11eb35533a26d08a56a53786fd60ddb20a058c720d8f66cad4f010859493753f29ac36aaa47d122b6459675c68a3f74928a
-  languageName: node
-  linkType: hard
-
 "radix3@npm:^1.1.0":
   version: 1.1.0
   resolution: "radix3@npm:1.1.0"
@@ -10637,19 +10614,6 @@ __metadata:
   dependencies:
     busboy: ^1.6.0
   checksum: 1177a9c4fc9a1ddb765508d0f69ae61c166559badce8d797aaa92beef70ec5ac8fdc420b643f5d8d40b9a37891ba5536e2070d86a9c54a128aec67ad0c862d06
-  languageName: node
-  linkType: hard
-
-"unenv@npm:^1.7.1":
-  version: 1.7.1
-  resolution: "unenv@npm:1.7.1"
-  dependencies:
-    consola: ^3.2.3
-    defu: ^6.1.2
-    mime: ^3.0.0
-    node-fetch-native: ^1.2.0
-    pathe: ^1.1.1
-  checksum: 84f7b4cd932cbd6e9b81dd7848cfc986afddb75d93126eb15dbe9bd8696138a3fe935c7470781157a76fd290bbd0d3188ada4c1182421582d050b8f5e0be242b
   languageName: node
   linkType: hard
 
