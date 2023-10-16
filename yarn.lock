@@ -22,10 +22,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@antfu/utils@npm:^0.7.5":
-  version: 0.7.5
-  resolution: "@antfu/utils@npm:0.7.5"
-  checksum: df6451ded84b8ea8ad951434a7e146361f160c4a42904853749e45c214c24aedd9cb2e906c699ca32b4f780f2afb6413f8ca753f017c52f30267ff5064b66e31
+"@antfu/utils@npm:^0.7.6":
+  version: 0.7.6
+  resolution: "@antfu/utils@npm:0.7.6"
+  checksum: 92bf38ded4364e237c401e546eef3dbcc383186e1515e1e1c5c505d19ae12d8702cac7527b94c28f12ab6063d26969798297980619d42aba76771d8f3bc7f620
   languageName: node
   linkType: hard
 
@@ -10601,14 +10601,14 @@ __metadata:
   linkType: hard
 
 "unconfig@npm:^0.3.10":
-  version: 0.3.10
-  resolution: "unconfig@npm:0.3.10"
+  version: 0.3.11
+  resolution: "unconfig@npm:0.3.11"
   dependencies:
-    "@antfu/utils": ^0.7.5
+    "@antfu/utils": ^0.7.6
     defu: ^6.1.2
-    jiti: ^1.19.1
-    mlly: ^1.4.0
-  checksum: 643191878865b00b9c1439296137a8d35663bab26497c955f44ef01a6b0c1708fd5402db76de6a6da4952e3b5ddd24e6c4b0f714af28696e2b1e77e1a4667d93
+    jiti: ^1.20.0
+    mlly: ^1.4.2
+  checksum: 860f66a3ad840ffc97b73fda65b3e67946bb0317a2add1a5cef5aac14f3ad91f5f678717426a1fa70e7137e4e61e5ffe4822268e5336e3be8daa64aea96be8e0
   languageName: node
   linkType: hard
 
