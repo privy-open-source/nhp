@@ -8253,18 +8253,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ofetch@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "ofetch@npm:1.1.1"
-  dependencies:
-    destr: ^2.0.0
-    node-fetch-native: ^1.2.0
-    ufo: ^1.1.2
-  checksum: 93d3e10f1ebcc0f1da69ee9cfd38b2f8818ce849ec3b6bf803351a6175adf6a5565cb130b7dcabd3a639bfe27589f5f84ac0ee4fd294855567d879a0e1f38484
-  languageName: node
-  linkType: hard
-
-"ofetch@npm:^1.3.3":
+"ofetch@npm:^1.1.1, ofetch@npm:^1.3.3":
   version: 1.3.3
   resolution: "ofetch@npm:1.3.3"
   dependencies:
