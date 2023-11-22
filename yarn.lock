@@ -2151,11 +2151,11 @@ __metadata:
   linkType: hard
 
 "@types/connect@npm:^3.4.35":
-  version: 3.4.36
-  resolution: "@types/connect@npm:3.4.36"
+  version: 3.4.38
+  resolution: "@types/connect@npm:3.4.38"
   dependencies:
     "@types/node": "*"
-  checksum: 4dee3d966fb527b98f0cbbdcf6977c9193fc3204ed539b7522fe5e64dfa45f9017bdda4ffb1f760062262fce7701a0ee1c2f6ce2e50af36c74d4e37052303172
+  checksum: 7eb1bc5342a9604facd57598a6c62621e244822442976c443efb84ff745246b10d06e8b309b6e80130026a396f19bf6793b7cecd7380169f369dac3bfc46fb99
   languageName: node
   linkType: hard
 
