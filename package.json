@@ -69,8 +69,8 @@
     "unconfig": "^0.3.10"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.6.7",
-    "@commitlint/config-conventional": "^17.6.7",
+    "@commitlint/cli": "^18.0.0",
+    "@commitlint/config-conventional": "^18.0.0",
     "@nuxt/module-builder": "^0.5.0",
     "@nuxt/schema": "^3.0.0",
     "@privyid/eslint-config-persona": "^0.26.0",
