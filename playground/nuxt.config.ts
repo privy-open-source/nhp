@@ -3,6 +3,7 @@ import MyModule from '../src/module'
 
 export default defineNuxtConfig({
   modules   : [MyModule],
+  app       : { baseURL: '/rc' },
   typescript: {
     tsConfig: {
       compilerOptions: {

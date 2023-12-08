@@ -2,7 +2,7 @@
   "name": "@privyid/nhp",
   "description": "Nuxt HTTP Proxy Module",
   "version": "0.4.0",
-  "packageManager": "yarn@3.7.0",
+  "packageManager": "yarn@4.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/privy-open-source/nhp.git"
