@@ -5665,13 +5665,14 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-n@npm:^16.0.0":
-  version: 16.4.0
-  resolution: "eslint-plugin-n@npm:16.4.0"
+  version: 16.6.1
+  resolution: "eslint-plugin-n@npm:16.6.1"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.4.0"
     builtins: "npm:^5.0.1"
     eslint-plugin-es-x: "npm:^7.5.0"
     get-tsconfig: "npm:^4.7.0"
+    globals: "npm:^13.24.0"
     ignore: "npm:^5.2.4"
     is-builtin-module: "npm:^3.2.1"
     is-core-module: "npm:^2.12.1"
@@ -5680,7 +5681,7 @@ __metadata:
     semver: "npm:^7.5.3"
   peerDependencies:
     eslint: ">=7.0.0"
-  checksum: 4339616442d27659903e83796810535a3be2a0a00aa69c60494f29a5dfdee4f9a39d645b8965f469153f3c87dae9c522f324a1e20c6d6b8bc92ad648b35a7803
+  checksum: fc5a4e7063966dddf6f1200b80fe1eac45384183245cb591a2f21eaf48f32a3abecbf4b0c05288b7bb43404dce7637b3cbe82aeb00278a0bae3cae9694280cf1
   languageName: node
   linkType: hard
 
@@ -6703,6 +6704,15 @@ __metadata:
   dependencies:
     type-fest: "npm:^0.20.2"
   checksum: f365fc2a4eb21a264d0f2a6355ddf4ee32983e0817ec48a517a56d7d1944124c763e81cae13ae26fa9a7d6c7ab826b2e796f87b022a674336275da0e6249366e
+  languageName: node
+  linkType: hard
+
+"globals@npm:^13.24.0":
+  version: 13.24.0
+  resolution: "globals@npm:13.24.0"
+  dependencies:
+    type-fest: "npm:^0.20.2"
+  checksum: 62c5b1997d06674fc7191d3e01e324d3eda4d65ac9cc4e78329fa3b5c4fd42a0e1c8722822497a6964eee075255ce21ccf1eec2d83f92ef3f06653af4d0ee28e
   languageName: node
   linkType: hard
 
