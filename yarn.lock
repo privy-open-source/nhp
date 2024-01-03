@@ -2408,7 +2408,7 @@ __metadata:
     husky: "npm:^8.0.0"
     lint-staged: "npm:^15.0.0"
     lodash-es: "npm:^4.17.21"
-    meow: "npm:^12.0.0"
+    meow: "npm:^13.0.0"
     nuxt: "npm:^3.0.0"
     ofetch: "npm:^1.1.1"
     openapi-types: "npm:^12.1.3"
@@ -8689,10 +8689,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"meow@npm:^12.0.0, meow@npm:^12.0.1":
+"meow@npm:^12.0.1":
   version: 12.1.1
   resolution: "meow@npm:12.1.1"
   checksum: 8594c319f4671a562c1fef584422902f1bbbad09ea49cdf9bb26dc92f730fa33398dd28a8cf34fcf14167f1d1148d05a867e50911fc4286751a4fb662fdd2dc2
+  languageName: node
+  linkType: hard
+
+"meow@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "meow@npm:13.0.0"
+  checksum: 2e0c0a8137b0cc035042b356f2189c74035fa437632ba5a0937ebf553fb08e404abc0506b56550c6fa39217459dabd907907ab2516f7758aa6bfeb74338afa70
   languageName: node
   linkType: hard
 
