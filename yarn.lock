@@ -6799,8 +6799,8 @@ __metadata:
   linkType: hard
 
 "h3@npm:^1.6.0, h3@npm:^1.8.1, h3@npm:^1.8.2, h3@npm:^1.9.0":
-  version: 1.9.0
-  resolution: "h3@npm:1.9.0"
+  version: 1.10.0
+  resolution: "h3@npm:1.10.0"
   dependencies:
     cookie-es: "npm:^1.0.0"
     defu: "npm:^6.1.3"
@@ -6809,8 +6809,8 @@ __metadata:
     radix3: "npm:^1.1.0"
     ufo: "npm:^1.3.2"
     uncrypto: "npm:^0.1.3"
-    unenv: "npm:^1.7.4"
-  checksum: ec3bf587b4a1a1797747cdc50327eb5ead654947b4f570fb3c9fa08999b69c854209f65443f55f1647b8b7612e9c67633f467a3e22f392c6179c0e8f9687bbfb
+    unenv: "npm:^1.8.0"
+  checksum: 33c84658ade5ee75d84c46a1429db92c3965a08658ee79ede88a1ab7826e4a1a66c59a77d8d4766d6c4d270c39290b0133e5aaaac74a6aed66c99d3852f2af69
   languageName: node
   linkType: hard
 
@@ -11919,19 +11919,6 @@ __metadata:
   dependencies:
     "@fastify/busboy": "npm:^2.0.0"
   checksum: 2bf96b102fb84568fb235bdf6e1e352e5d2bf99566b243cd1b13b41578bf9dd5c7c3d3d82192b20a3fec61fe7a528f9d80cd5b4555ce65405c06c69b023013de
-  languageName: node
-  linkType: hard
-
-"unenv@npm:^1.7.4":
-  version: 1.7.4
-  resolution: "unenv@npm:1.7.4"
-  dependencies:
-    consola: "npm:^3.2.3"
-    defu: "npm:^6.1.2"
-    mime: "npm:^3.0.0"
-    node-fetch-native: "npm:^1.4.0"
-    pathe: "npm:^1.1.1"
-  checksum: 823994f5b4ce73c960e899bc5c7f5e22285404a5b50673de157e294a6b2223bb2df78e79f6e2f96adc783e08ef2b75e8bbab250f9738bd6f368f1c05703992b7
   languageName: node
   linkType: hard
 
