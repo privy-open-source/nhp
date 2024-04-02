@@ -8237,7 +8237,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jiti@npm:^1.19.3, jiti@npm:^1.20.0":
+"jiti@npm:^1.19.3":
   version: 1.20.0
   resolution: "jiti@npm:1.20.0"
   bin:
@@ -12542,14 +12542,14 @@ __metadata:
   linkType: hard
 
 "unconfig@npm:^0.3.10":
-  version: 0.3.11
-  resolution: "unconfig@npm:0.3.11"
+  version: 0.3.12
+  resolution: "unconfig@npm:0.3.12"
   dependencies:
-    "@antfu/utils": "npm:^0.7.6"
-    defu: "npm:^6.1.2"
-    jiti: "npm:^1.20.0"
-    mlly: "npm:^1.4.2"
-  checksum: 10/4a1726a0e151d41e61625fb9add430dc8e312de882a09564a46518345b75b36133caeada0a00cd3b1ea419d4f0210d1d9516ae7418e079cde76068fdff8839ab
+    "@antfu/utils": "npm:^0.7.7"
+    defu: "npm:^6.1.4"
+    jiti: "npm:^1.21.0"
+    mlly: "npm:^1.6.1"
+  checksum: 10/85c247ba866f4650fefd998a57f1a3d57f46b707f38021e4a16c5d752e29809d370ebf380d9e2ddca679be102b72edbc21c110494e633ca29f339de73f953eb2
   languageName: node
   linkType: hard
 
