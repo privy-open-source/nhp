@@ -12542,14 +12542,13 @@ __metadata:
   linkType: hard
 
 "unconfig@npm:^0.3.10":
-  version: 0.3.12
-  resolution: "unconfig@npm:0.3.12"
+  version: 0.3.13
+  resolution: "unconfig@npm:0.3.13"
   dependencies:
     "@antfu/utils": "npm:^0.7.7"
     defu: "npm:^6.1.4"
     jiti: "npm:^1.21.0"
-    mlly: "npm:^1.6.1"
-  checksum: 10/85c247ba866f4650fefd998a57f1a3d57f46b707f38021e4a16c5d752e29809d370ebf380d9e2ddca679be102b72edbc21c110494e633ca29f339de73f953eb2
+  checksum: 10/b480fb1a40362ee2bd11d6824be50fd3b52633df6423cff782fdb178f85aed6ec9ee1d21e5ecffe8244fdae14f2f0786c38612c5ded2d7bdc768c4878a7c4219
   languageName: node
   linkType: hard
 
