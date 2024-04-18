@@ -2083,7 +2083,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/schema@npm:3.11.1, @nuxt/schema@npm:^3.0.0, @nuxt/schema@npm:^3.9.1":
+"@nuxt/schema@npm:3.11.1, @nuxt/schema@npm:^3.9.1":
   version: 3.11.1
   resolution: "@nuxt/schema@npm:3.11.1"
   dependencies:
@@ -2376,7 +2376,7 @@ __metadata:
     "@commitlint/config-conventional": "npm:19.1.0"
     "@nuxt/kit": "npm:^3.0.0"
     "@nuxt/module-builder": "npm:0.5.5"
-    "@nuxt/schema": "npm:^3.0.0"
+    "@nuxt/schema": "npm:3.11.1"
     "@privyid/eslint-config-persona": "npm:^0.27.0"
     "@privyid/nuapi": "npm:0.2.1"
     "@types/connect": "npm:3.4.38"
@@ -2404,7 +2404,7 @@ __metadata:
     lint-staged: "npm:15.2.2"
     lodash-es: "npm:^4.17.21"
     meow: "npm:^13.0.0"
-    nuxt: "npm:^3.0.0"
+    nuxt: "npm:3.11.1"
     ofetch: "npm:^1.1.1"
     openapi-types: "npm:^12.1.3"
     pinst: "npm:3.0.0"
@@ -9746,7 +9746,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nuxt@npm:^3.0.0":
+"nuxt@npm:3.11.1":
   version: 3.11.1
   resolution: "nuxt@npm:3.11.1"
   dependencies:
