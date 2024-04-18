@@ -96,7 +96,7 @@
     "lint-staged": "15.2.2",
     "nuxt": "^3.0.0",
     "pinst": "3.0.0",
-    "typescript": "5.4.3"
+    "typescript": "5.4.5"
   },
   "publishConfig": {
     "access": "public"
