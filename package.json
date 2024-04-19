@@ -1,7 +1,7 @@
 {
   "name": "@privyid/nhp",
   "description": "Nuxt HTTP Proxy Module",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "packageManager": "yarn@4.1.1",
   "repository": {
     "type": "git",
@@ -86,7 +86,6 @@
     "eslint-formatter-pretty": "5.0.0",
     "eslint-plugin-align-assignments": "1.1.2",
     "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-n": "^16.0.0",
     "eslint-plugin-n": "14.0.0",
     "eslint-plugin-promise": "6.1.1",
     "eslint-plugin-unicorn": "47.0.0",
