@@ -9141,14 +9141,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"http-proxy@npm:^1.18.1":
-  version: 1.18.1
-  resolution: "http-proxy@npm:1.18.1"
+"http-proxy@npm:http-proxy-node16@1.0.5":
+  version: 1.0.5
+  resolution: "http-proxy-node16@npm:1.0.5"
   dependencies:
     eventemitter3: "npm:^4.0.0"
     follow-redirects: "npm:^1.0.0"
     requires-port: "npm:^1.0.0"
-  checksum: 10/2489e98aba70adbfd8b9d41ed1ff43528be4598c88616c558b109a09eaffe4bb35e551b6c75ac42ed7d948bb7530a22a2be6ef4f0cecacb5927be139f4274594
+  checksum: 10/8fdbf2690e8a1967d37162a7fc5f22e23dedf6cc52a285c7b437fdf95f367e5098f004b3e021b2728f2c604c1d2d544f64d628cb8038c4701e17f73197aa07ab
   languageName: node
   linkType: hard
 
