@@ -3492,7 +3492,7 @@ __metadata:
     "@privyid/eslint-config-persona": "npm:0.27.0"
     "@privyid/nuapi": "npm:0.2.1"
     "@types/connect": "npm:3.4.38"
-    "@types/express": "npm:^4.17.21"
+    "@types/express": "npm:4.17.21"
     "@types/fs-extra": "npm:11.0.4"
     "@types/lodash-es": "npm:4.17.12"
     "@typescript-eslint/eslint-plugin": "npm:5.62.0"
@@ -4254,7 +4254,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express@npm:^4.17.21":
+"@types/express@npm:4.17.21":
   version: 4.17.21
   resolution: "@types/express@npm:4.17.21"
   dependencies:
