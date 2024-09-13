@@ -1,7 +1,7 @@
 {
   "name": "@privyid/nhp",
   "description": "Nuxt HTTP Proxy Module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "packageManager": "yarn@4.4.1",
   "repository": {
     "type": "git",
@@ -44,7 +44,7 @@
     "lint": "eslint . --ext .js,.vue,.ts --format pretty",
     "fix": "yarn lint --fix",
     "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxi prepare playground",
     "postinstall": "husky install",
     "postpack": "pinst --enable"
   },
@@ -54,7 +54,7 @@
     ]
   },
   "dependencies": {
-    "@nuxt/kit": "^3.11.2",
+    "@nuxt/kit": "^3.13.1",
     "connect": "^3.7.0",
     "consola": "^3.0.0",
     "fs-extra": "^11.1.0",

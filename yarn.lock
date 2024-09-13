@@ -3638,7 +3638,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": "npm:19.5.0"
     "@commitlint/config-conventional": "npm:19.5.0"
-    "@nuxt/kit": "npm:^3.11.2"
+    "@nuxt/kit": "npm:^3.13.1"
     "@nuxt/module-builder": "npm:0.8.4"
     "@nuxt/schema": "npm:3.13.1"
     "@privyid/eslint-config-persona": "npm:0.27.0"
