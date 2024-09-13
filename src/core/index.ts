@@ -72,21 +72,21 @@ export interface ApiServer extends Options {
   swagger?: SwaggerConfig,
 }
 
-export type EventInterceptor = (proxyEvent: H3Event, event: H3Event) => unknown | Promise<unknown>
+export type EventInterceptor = (proxyEvent: H3Event, event: H3Event, options?: Options) => unknown | Promise<unknown>
 
 /**
  * Transform http-proxy-middleware
  * @param handler H3-Compabilities event handler
  */
 export function defineEventInterceptor (handler: EventInterceptor) {
-  return (proxy: http.ClientRequest | http.IncomingMessage, req: Request, res: Response) => {
-    const event      = createEvent(req as http.IncomingMessage, res as http.ServerResponse<http.IncomingMessage>)
+  return (proxy: http.ClientRequest | http.IncomingMessage, req: Request, res: Response, options?: Options) => {
+    const event      = createEvent(req, res)
     const proxyEvent = createEvent(
       proxy as unknown as http.IncomingMessage,
       proxy as unknown as http.ServerResponse<http.IncomingMessage>,
     )
 
-    handler(proxyEvent, event)
+    handler(proxyEvent, event, options)
   }
 }
 
