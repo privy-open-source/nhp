@@ -3676,7 +3676,7 @@ __metadata:
     type-fest: "npm:^4.1.0"
     typescript: "npm:5.6.2"
     ufo: "npm:^1.1.2"
-    unconfig: "npm:^0.5.0"
+    unconfig: "npm:^0.6.0"
   bin:
     nhp: ./bin/nhp.js
   languageName: unknown
@@ -7027,7 +7027,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:~4.3.6":
+"debug@npm:^4.3.7, debug@npm:~4.3.6":
   version: 4.3.7
   resolution: "debug@npm:4.3.7"
   dependencies:
@@ -8069,7 +8069,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.21.3, esbuild@npm:~0.21.5":
+"esbuild@npm:^0.21.3":
   version: 0.21.5
   resolution: "esbuild@npm:0.21.5"
   dependencies:
@@ -8149,7 +8149,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.23.1":
+"esbuild@npm:^0.23.1, esbuild@npm:~0.23.0":
   version: 0.23.1
   resolution: "esbuild@npm:0.23.1"
   dependencies:
@@ -9949,18 +9949,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"importx@npm:^0.4.2":
-  version: 0.4.2
-  resolution: "importx@npm:0.4.2"
+"importx@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "importx@npm:0.5.0"
   dependencies:
     bundle-require: "npm:^5.0.0"
-    debug: "npm:^4.3.6"
+    debug: "npm:^4.3.7"
     esbuild: "npm:^0.20.2 || ^0.21.0 || ^0.22.0 || ^0.23.0"
-    jiti: "npm:2.0.0-beta.2"
+    jiti: "npm:^2.0.0"
     pathe: "npm:^1.1.2"
-    pkg-types: "npm:^1.1.3"
-    tsx: "npm:^4.16.2"
-  checksum: 10/8232acc3c511bc7fcd435a7e1d75915b9ea71405d12cbbc27fd3a255d728e5a341b1c5a71107b723ef84f21898ef1442f2d1ffa04a6e7723f7cbecef17eb7d59
+    tsx: "npm:^4.19.1"
+  checksum: 10/a997776dacea2af02bf917aa2e6d3ab97a85a65b022335e29a242b64f34442c7a1b77f2d56e6206dbb1e55f93f6321b4d48c8704f7cc0521fa1f5be4426675cf
   languageName: node
   linkType: hard
 
@@ -10561,15 +10560,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jiti@npm:2.0.0-beta.2":
-  version: 2.0.0-beta.2
-  resolution: "jiti@npm:2.0.0-beta.2"
-  bin:
-    jiti: lib/jiti-cli.mjs
-  checksum: 10/29350bc85f92ae71ec0d79df0a423d92c6ded33e3d6e7ccedabfa0e2d7b133999ba519f26885077a81f2ee206fb6321456ea1497f56f6c0b0be8c171e5c9fc05
-  languageName: node
-  linkType: hard
-
 "jiti@npm:^1.19.1":
   version: 1.19.1
   resolution: "jiti@npm:1.19.1"
@@ -10603,6 +10593,15 @@ __metadata:
   bin:
     jiti: bin/jiti.js
   checksum: 10/289b124cea411c130a14ffe88e3d38376ab44b6695616dfa0a1f32176a8f20ec90cdd6d2b9d81450fc6467cfa4d865f04f49b98452bff0f812bc400fd0ae78d6
+  languageName: node
+  linkType: hard
+
+"jiti@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "jiti@npm:2.0.0"
+  bin:
+    jiti: lib/jiti-cli.mjs
+  checksum: 10/2fdb08483c7beb1f75449b721bc0273d3eeb9008d2a3031ed24437c0e6b599813d6b531d5380331396df6f52db16f5a1c7657bfaeecee19d2e07e6f7753e7fa1
   languageName: node
   linkType: hard
 
@@ -12634,17 +12633,6 @@ __metadata:
     mlly: "npm:^1.7.1"
     pathe: "npm:^1.1.2"
   checksum: 10/c023244f29e111cd2fec6a20f8c629ab087c2ea850041a00ecf71005256c872ba97a06ea902b5a3bc340fb9fc326ef147b79f23d7595689dd6e55ce3a7c31da5
-  languageName: node
-  linkType: hard
-
-"pkg-types@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "pkg-types@npm:1.1.3"
-  dependencies:
-    confbox: "npm:^0.1.7"
-    mlly: "npm:^1.7.1"
-    pathe: "npm:^1.1.2"
-  checksum: 10/06c03ca679ea8e3a1ea7cb74e92af1a486a6081401aac35f6aa51fb6f0855cd86bbfc713f9bfdaaa730815b5ae147b4d6a838710b550c1c4b3f54a6653ff04a3
   languageName: node
   linkType: hard
 
@@ -14842,11 +14830,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:^4.16.2":
-  version: 4.16.2
-  resolution: "tsx@npm:4.16.2"
+"tsx@npm:^4.19.1":
+  version: 4.19.1
+  resolution: "tsx@npm:4.19.1"
   dependencies:
-    esbuild: "npm:~0.21.5"
+    esbuild: "npm:~0.23.0"
     fsevents: "npm:~2.3.3"
     get-tsconfig: "npm:^4.7.5"
   dependenciesMeta:
@@ -14854,7 +14842,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10/841ccbace3dc0c42704bb5c4cea47e1f4cd313aa4719fd4531e5ed40bb862b02349c76f7c56c53b64207eebbb1c2ac2e117482aabfbf197a30fbc0b2584b60be
+  checksum: 10/1f5f0b7c4107fc18f523e94c79204b043641aa328f721324795cc961826879035652a1f19fe29ba420465d9f4bacb0f47e08f0bd4b934684ab45727eca110311
   languageName: node
   linkType: hard
 
@@ -15107,14 +15095,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unconfig@npm:^0.5.0":
-  version: 0.5.2
-  resolution: "unconfig@npm:0.5.2"
+"unconfig@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "unconfig@npm:0.6.0"
   dependencies:
     "@antfu/utils": "npm:^0.7.10"
     defu: "npm:^6.1.4"
-    importx: "npm:^0.4.2"
-  checksum: 10/f1c3c7f5037edcaf501ae70aeead682ff3433ef7cae8217916d14d9db591294ee4dc4658d3fd8f94ddbec4b6860bbbc14d08afdf1337cf72400cfd3f5532730f
+    importx: "npm:^0.5.0"
+  checksum: 10/af3b8fb0b9169edfcdb151e51ebadd1bbc63dde8d7366fe8130d8c659b2cf24c6fc7ac69a8ab73b7d13ab27911ec1e095b99dbc6ef7fb8d87841c9842c02a700
   languageName: node
   linkType: hard
 
