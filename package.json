@@ -79,7 +79,7 @@
     "@privyid/eslint-config-persona": "0.27.0",
     "@privyid/nuapi": "0.2.1",
     "@types/connect": "3.4.38",
-    "@types/express": "4.17.21",
+    "@types/express": "5.0.0",
     "@types/fs-extra": "11.0.4",
     "@types/lodash-es": "4.17.12",
     "@typescript-eslint/eslint-plugin": "5.62.0",
