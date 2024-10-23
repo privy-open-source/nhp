@@ -5,7 +5,6 @@ import {
   getQuery as getRequestQuery,
 } from 'h3'
 import { getQuery } from 'ufo'
-import { isValidURL } from './url'
 import { createProxyServer, type ProxyServerOptions as Options } from 'httpxy'
 import { defu } from 'defu'
 import { installHook, type HooksOptions } from './hooks'
@@ -37,6 +36,13 @@ function parseWhitelist (whitelist: string | string[] | undefined) {
     : (whitelist ?? '').split(';')
 }
 
+function parseURL (url: unknown): URL | undefined {
+  try {
+    if (typeof url === 'string')
+      return new URL(url)
+  } catch {}
+}
+
 export function createProxyDynamic (config: ApiServer) {
   return defineLazyEventHandler(() => {
     const proxy      = createProxyServer()
@@ -48,10 +54,10 @@ export function createProxyDynamic (config: ApiServer) {
     installHook(proxy, defu<HooksOptions, [HooksOptions]>({ onProxyRes }, config))
 
     return defineEventHandler(async (event) => {
-      const query  = getRequestQuery(event)
-      const rawURL = query.url
+      const query = getRequestQuery(event)
+      const url   = parseURL(query.url)
 
-      if (typeof rawURL !== 'string' || !isValidURL(rawURL)) {
+      if (!url) {
         throw createError({
           statusCode   : 404,
           statusMessage: 'Page not found',
@@ -62,8 +68,6 @@ export function createProxyDynamic (config: ApiServer) {
           },
         })
       }
-
-      const url = new URL(rawURL)
 
       if (!url.host || !whitelist.includes(url.host)) {
         throw createError({
