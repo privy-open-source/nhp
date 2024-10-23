@@ -28,7 +28,7 @@ export default defineServer([
     name          : 'force-download',
     baseUrl       : '/force/download',
     proxyType     : 'dynamic',
-    allowFrom     : ['dummyjson.com'],
+    allowFrom     : ['dummyjson.com', 'httpbin.org'],
     downloadExt   : '.pdf',
     downloadHeader: true,
   },
