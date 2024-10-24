@@ -21,7 +21,8 @@ export default defineNuxtModule<ModuleOptions>({
 
     addServerHandler({
       middleware: true,
-      handler   : resolve('./runtime/proxy'),
+      lazy      : true,
+      handler   : resolve('./runtime/server/middleware/proxy'),
     })
 
     if (options.autoImport !== false) {

@@ -1,7 +1,15 @@
 import type * as http from 'node:http'
 import { type H3Event, createEvent } from 'h3'
-import { type Options } from 'http-proxy-middleware'
-import type { Request, Response } from 'http-proxy-middleware/dist/types'
+import { type ProxyServerOptions as Options } from 'httpxy'
+import type {
+  OnEndCallback,
+  OnErrorCallback,
+  OnStartCallback,
+  OnProxyReqCallback,
+  OnProxyReqWsCallback,
+  OnProxyResCallback,
+  PathRewrite,
+} from './types'
 
 export interface SwaggerConfig {
   /**
@@ -70,6 +78,34 @@ export interface ApiServer extends Options {
    * Swagger transformer config
    */
   swagger?: SwaggerConfig,
+  /**
+   * path Rewrite
+   */
+  pathRewrite?: PathRewrite,
+  /**
+   * on proxy error
+   */
+  onError?: OnErrorCallback,
+  /**
+   * on proxy request
+   */
+  onProxyReq?: OnProxyReqCallback,
+  /**
+   * on proxy response
+   */
+  onProxyRes?: OnProxyResCallback,
+  /**
+   * on proxy request (websocket)
+   */
+  onProxyReqWs?: OnProxyReqWsCallback,
+  /**
+   * on proxy start
+   */
+  onStart?: OnStartCallback,
+  /**
+   * on proxy end
+   */
+  onEnd?: OnEndCallback,
 }
 
 export type EventInterceptor = (proxyEvent: H3Event, event: H3Event, options?: Options) => unknown | Promise<unknown>
@@ -79,7 +115,7 @@ export type EventInterceptor = (proxyEvent: H3Event, event: H3Event, options?: O
  * @param handler H3-Compabilities event handler
  */
 export function defineEventInterceptor (handler: EventInterceptor) {
-  return (proxy: http.ClientRequest | http.IncomingMessage, req: Request, res: Response, options?: Options) => {
+  return (proxy: http.ClientRequest | http.IncomingMessage, req: http.IncomingMessage, res: http.ServerResponse, options?: Options) => {
     const event      = createEvent(req, res)
     const proxyEvent = createEvent(
       proxy as unknown as http.IncomingMessage,
