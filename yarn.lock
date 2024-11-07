@@ -3528,7 +3528,7 @@ __metadata:
     eslint-plugin-vue: "npm:9.30.0"
     fs-extra: "npm:^11.1.0"
     h3: "npm:^1.6.0"
-    http-proxy-middleware: "npm:^2.0.6"
+    http-proxy-middleware: "npm:^3.0.0"
     husky: "npm:9.1.6"
     lint-staged: "npm:15.2.10"
     lodash-es: "npm:^4.17.21"
@@ -4326,15 +4326,6 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: 10/fa86d5397c021f6c824d1143a206009bfb64ff703da32fb30f6176c603daf6c24ce3a28daf26b3945c94dd10f9d76f07ea7a6a2c3e9b710e00ff42da32e08dea
-  languageName: node
-  linkType: hard
-
-"@types/http-proxy@npm:^1.17.8":
-  version: 1.17.10
-  resolution: "@types/http-proxy@npm:1.17.10"
-  dependencies:
-    "@types/node": "npm:*"
-  checksum: 10/ebe67df06619206a16034aa87e68ab33bc093ab20723ebbb11ff995d3387542961524d66d20e7270df832bcc461b7f44e3f4a9935998289d292bbb22a9141079
   languageName: node
   linkType: hard
 
@@ -9812,21 +9803,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"http-proxy-middleware@npm:^2.0.6":
-  version: 2.0.6
-  resolution: "http-proxy-middleware@npm:2.0.6"
+"http-proxy-middleware@npm:^3.0.0":
+  version: 3.0.3
+  resolution: "http-proxy-middleware@npm:3.0.3"
   dependencies:
-    "@types/http-proxy": "npm:^1.17.8"
+    "@types/http-proxy": "npm:^1.17.15"
+    debug: "npm:^4.3.6"
     http-proxy: "npm:^1.18.1"
-    is-glob: "npm:^4.0.1"
-    is-plain-obj: "npm:^3.0.0"
-    micromatch: "npm:^4.0.2"
-  peerDependencies:
-    "@types/express": ^4.17.13
-  peerDependenciesMeta:
-    "@types/express":
-      optional: true
-  checksum: 10/768e7ae5a422bbf4b866b64105b4c2d1f468916b7b0e9c96750551c7732383069b411aa7753eb7b34eab113e4f77fb770122cb7fb9c8ec87d138d5ddaafda891
+    is-glob: "npm:^4.0.3"
+    is-plain-object: "npm:^5.0.0"
+    micromatch: "npm:^4.0.8"
+  checksum: 10/32f58c29288ca63e109909fb998bd0f6f50eb15a98dec9487eac07dfc4f09d8507dbfa00b44442d868bafa904bd633c8bbd55686bb13b4d4af4f5c5b3bbca430
   languageName: node
   linkType: hard
 
@@ -10404,10 +10391,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-plain-obj@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "is-plain-obj@npm:3.0.0"
-  checksum: 10/a6ebdf8e12ab73f33530641972a72a4b8aed6df04f762070d823808303e4f76d87d5ea5bd76f96a7bbe83d93f04ac7764429c29413bd9049853a69cb630fb21c
+"is-plain-object@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "is-plain-object@npm:5.0.0"
+  checksum: 10/e32d27061eef62c0847d303125440a38660517e586f2f3db7c9d179ae5b6674ab0f469d519b2e25c147a1a3bc87156d0d5f4d8821e0ce4a9ee7fe1fcf11ce45c
   languageName: node
   linkType: hard
 
@@ -11322,7 +11309,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"micromatch@npm:^4.0.2, micromatch@npm:^4.0.4, micromatch@npm:^4.0.5":
+"micromatch@npm:^4.0.4, micromatch@npm:^4.0.5":
   version: 4.0.5
   resolution: "micromatch@npm:4.0.5"
   dependencies:
