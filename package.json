@@ -95,7 +95,7 @@
     "eslint-plugin-unicorn": "47.0.0",
     "eslint-plugin-varspacing": "1.2.2",
     "eslint-plugin-vue": "9.30.0",
-    "husky": "9.1.6",
+    "husky": "9.1.7",
     "lint-staged": "15.2.10",
     "nuxt": "3.14.159",
     "pinst": "3.0.0",
