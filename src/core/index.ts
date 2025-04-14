@@ -1,5 +1,10 @@
 import type * as http from 'node:http'
-import { type H3Event, createEvent } from 'h3'
+import {
+  type H3Event,
+  createEvent,
+  getHeader,
+  setHeader,
+} from 'h3'
 import { type ProxyServerOptions as Options } from 'httpxy'
 import type {
   OnEndCallback,
@@ -131,4 +136,16 @@ export function defineEventInterceptor (handler: EventInterceptor) {
  */
 export function defineServer (servers: ApiServer[]): ApiServer[] {
   return servers
+}
+
+/**
+ * Check header is exist, if not set to default value
+ * @param event
+ * @param proxyEvent
+ * @param name
+ * @param defaultValue
+ */
+export function ensureHeader (event: H3Event, proxyEvent: H3Event, name: string, defaultValue: string) {
+  if (!getHeader(event, name))
+    setHeader(proxyEvent, name, defaultValue)
 }

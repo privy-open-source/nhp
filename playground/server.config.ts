@@ -22,6 +22,8 @@ export default defineServer([
 
       if (token)
         setHeader(proxyEvent, 'Authorization', `Bearer ${token}`)
+
+      setHeader(proxyEvent, 'X-Platform', 'NHP')
     }),
   },
   {
