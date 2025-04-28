@@ -22,13 +22,15 @@ export default defineServer([
 
       if (token)
         setHeader(proxyEvent, 'Authorization', `Bearer ${token}`)
+
+      setHeader(proxyEvent, 'X-Platform', 'NHP')
     }),
   },
   {
     name          : 'force-download',
     baseUrl       : '/force/download',
     proxyType     : 'dynamic',
-    allowFrom     : ['dummyjson.com'],
+    allowFrom     : ['dummyjson.com', 'httpbin.org'],
     downloadExt   : '.pdf',
     downloadHeader: true,
   },

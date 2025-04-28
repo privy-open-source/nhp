@@ -1,8 +1,8 @@
 {
   "name": "@privyid/nhp",
   "description": "Nuxt HTTP Proxy Module",
-  "version": "1.0.1",
-  "packageManager": "yarn@4.5.1",
+  "version": "2.0.0-alpha.1",
+  "packageManager": "yarn@4.9.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/privy-open-source/nhp.git"
@@ -54,32 +54,26 @@
     ]
   },
   "dependencies": {
-    "@nuxt/kit": "^3.13.1",
-    "connect": "^3.7.0",
+    "@nuxt/kit": "^3.13.2",
     "consola": "^3.0.0",
-    "fs-extra": "^11.1.0",
+    "fs-extra": "^11.2.0",
     "h3": "^1.6.0",
-    "http-proxy-middleware": "^2.0.6",
+    "httpxy": "^0.1.5",
     "lodash-es": "^4.17.21",
     "meow": "^13.2.0",
     "ofetch": "^1.1.1",
     "openapi-types": "^12.1.3",
     "type-fest": "^4.1.0",
-    "ufo": "^1.1.2",
+    "ufo": "^1.5.4",
     "unconfig": "^0.6.0"
   },
-  "resolutions": {
-    "http-proxy": "npm:http-proxy-node16@1.0.5"
-  },
   "devDependencies": {
-    "@commitlint/cli": "19.5.0",
-    "@commitlint/config-conventional": "19.5.0",
+    "@commitlint/cli": "19.8.0",
+    "@commitlint/config-conventional": "19.8.0",
     "@nuxt/module-builder": "0.8.4",
-    "@nuxt/schema": "3.14.159",
+    "@nuxt/schema": "3.16.2",
     "@privyid/eslint-config-persona": "0.27.0",
     "@privyid/nuapi": "0.2.1",
-    "@types/connect": "3.4.38",
-    "@types/express": "5.0.0",
     "@types/fs-extra": "11.0.4",
     "@types/lodash-es": "4.17.12",
     "@typescript-eslint/eslint-plugin": "5.62.0",
@@ -94,12 +88,12 @@
     "eslint-plugin-promise": "6.6.0",
     "eslint-plugin-unicorn": "47.0.0",
     "eslint-plugin-varspacing": "1.2.2",
-    "eslint-plugin-vue": "9.30.0",
-    "husky": "9.1.6",
+    "eslint-plugin-vue": "9.33.0",
+    "husky": "9.1.7",
     "lint-staged": "15.2.10",
-    "nuxt": "3.14.159",
+    "nuxt": "3.16.2",
     "pinst": "3.0.0",
-    "typescript": "5.6.3"
+    "typescript": "5.8.3"
   },
   "publishConfig": {
     "access": "public"
