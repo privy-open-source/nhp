@@ -71,7 +71,7 @@
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
     "@nuxt/module-builder": "0.8.4",
-    "@nuxt/schema": "3.16.2",
+    "@nuxt/schema": "3.17.0",
     "@privyid/eslint-config-persona": "0.27.0",
     "@privyid/nuapi": "0.2.1",
     "@types/fs-extra": "11.0.4",
@@ -91,7 +91,7 @@
     "eslint-plugin-vue": "9.33.0",
     "husky": "9.1.7",
     "lint-staged": "15.2.10",
-    "nuxt": "3.16.2",
+    "nuxt": "3.17.0",
     "pinst": "3.0.0",
     "typescript": "5.8.3"
   },
