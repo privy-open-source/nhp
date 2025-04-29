@@ -73,7 +73,7 @@
     "@nuxt/module-builder": "0.8.4",
     "@nuxt/schema": "3.17.1",
     "@privyid/eslint-config-persona": "1.1.2",
-    "@privyid/nuapi": "0.2.1",
+    "@privyid/nuapi": "1.0.0",
     "@types/fs-extra": "11.0.4",
     "@types/lodash-es": "4.17.12",
     "@typescript-eslint/eslint-plugin": "5.62.0",
