@@ -68,8 +68,8 @@
     "unconfig": "^7.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.8.0",
-    "@commitlint/config-conventional": "19.8.0",
+    "@commitlint/cli": "19.8.1",
+    "@commitlint/config-conventional": "19.8.1",
     "@nuxt/module-builder": "0.8.4",
     "@nuxt/schema": "3.17.4",
     "@privyid/eslint-config-persona": "1.1.2",
