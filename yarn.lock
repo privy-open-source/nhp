@@ -2573,7 +2573,7 @@ __metadata:
     eslint-plugin-vue: "npm:9.33.0"
     fs-extra: "npm:^11.2.0"
     h3: "npm:^1.6.0"
-    httpxy: "npm:^0.1.5"
+    httpxy: "npm:^0.5.0"
     husky: "npm:9.1.7"
     lint-staged: "npm:15.5.2"
     lodash-es: "npm:^4.17.21"
@@ -8988,17 +8988,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"httpxy@npm:^0.1.5":
-  version: 0.1.5
-  resolution: "httpxy@npm:0.1.5"
-  checksum: 10/9ad852a6414296ddff79f52a6925626aaeddda7b0cc1fa14a83bd4d898e553ce8a22c8f55c27bd21884f525ad7ba1d40424d23e72c48709d7797bd215e513bcb
-  languageName: node
-  linkType: hard
-
 "httpxy@npm:^0.1.7":
   version: 0.1.7
   resolution: "httpxy@npm:0.1.7"
   checksum: 10/d8d219bf2f2f5414e27c3d98b34f61fe91c0a03e41d6b423a5fe8516b0b9dad70b23edf9d1729a97e722e7e782284c5c4472bd073fc17759978f32fc4f4115e6
+  languageName: node
+  linkType: hard
+
+"httpxy@npm:^0.5.0":
+  version: 0.5.5
+  resolution: "httpxy@npm:0.5.5"
+  checksum: 10/6ad32b51d509480f7cb37b30197efeb05cb8c6f4806b052e7b05cf02577d59b48f92d0f4e52874e0d38fd3a7863aed13c2b06c521346b06db3f33a014af2bd52
   languageName: node
   linkType: hard
 
